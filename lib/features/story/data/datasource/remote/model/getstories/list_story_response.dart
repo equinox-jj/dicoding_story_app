@@ -10,7 +10,7 @@ class ListStoryResponse with _$ListStoryResponse {
     required String? name,
     required String? description,
     required String? photoUrl,
-    required String? createdAt,
+    required DateTime? createdAt,
     required num? lat,
     required num? long,
   }) = _ListStoryResponse;

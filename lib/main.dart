@@ -1,8 +1,14 @@
+import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
+import 'package:dicoding_story_app/features/auth/presentation/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'di/injector.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  init();
   runApp(const MyApp());
 }
 
@@ -12,22 +18,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: const [],
+      providers: [
+        BlocProvider(
+          create: (context) => sl<RegisterBloc>(),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('id', ''),
-          Locale('en', ''),
-        ],
+        home: const RegisterPage(),
       ),
     );
   }

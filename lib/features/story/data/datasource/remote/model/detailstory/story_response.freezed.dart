@@ -24,7 +24,7 @@ mixin _$StoryResponse {
   String? get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
-  String? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   num? get lat => throw _privateConstructorUsedError;
   num? get long => throw _privateConstructorUsedError;
 
@@ -45,7 +45,7 @@ abstract class $StoryResponseCopyWith<$Res> {
       String? name,
       String? description,
       String? photoUrl,
-      String? createdAt,
+      DateTime? createdAt,
       num? lat,
       num? long});
 }
@@ -91,7 +91,7 @@ class _$StoryResponseCopyWithImpl<$Res, $Val extends StoryResponse>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -117,7 +117,7 @@ abstract class _$$StoryResponseImplCopyWith<$Res>
       String? name,
       String? description,
       String? photoUrl,
-      String? createdAt,
+      DateTime? createdAt,
       num? lat,
       num? long});
 }
@@ -161,7 +161,7 @@ class __$$StoryResponseImplCopyWithImpl<$Res>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ class _$StoryResponseImpl implements _StoryResponse {
   @override
   final String? photoUrl;
   @override
-  final String? createdAt;
+  final DateTime? createdAt;
   @override
   final num? lat;
   @override
@@ -251,7 +251,7 @@ abstract class _StoryResponse implements StoryResponse {
       required final String? name,
       required final String? description,
       required final String? photoUrl,
-      required final String? createdAt,
+      required final DateTime? createdAt,
       required final num? lat,
       required final num? long}) = _$StoryResponseImpl;
 
@@ -267,7 +267,7 @@ abstract class _StoryResponse implements StoryResponse {
   @override
   String? get photoUrl;
   @override
-  String? get createdAt;
+  DateTime? get createdAt;
   @override
   num? get lat;
   @override
