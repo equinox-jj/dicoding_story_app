@@ -10,7 +10,10 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     sendTimeout: const Duration(seconds: 5),
     receiveTimeout: const Duration(seconds: 5),
   ))
-    ..interceptors.add(LogInterceptor());
+    ..interceptors.add(LogInterceptor(
+      requestBody: true,
+      responseBody: true,
+    ));
 
   @override
   Future<RegisterResponse> registerUser({

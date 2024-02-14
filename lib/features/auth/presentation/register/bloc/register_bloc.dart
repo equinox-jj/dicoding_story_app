@@ -12,8 +12,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final AuthRepository _authRepository;
 
   RegisterBloc(this._authRepository) : super(const _Initial()) {
-    on<RegisterEvent>((event, emit) {
-      event.mapOrNull(
+    on<RegisterEvent>((event, emit) async {
+      await event.mapOrNull(
         registerUser: (value) async {
           emit(const RegisterState.loading());
 
