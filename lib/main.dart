@@ -1,6 +1,6 @@
-import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
-import 'package:dicoding_story_app/features/auth/presentation/register/register_page.dart';
-import 'package:dicoding_story_app/l10n/l10n.dart';
+import 'features/auth/presentation/register/bloc/register_bloc.dart';
+import 'features/auth/presentation/register/register_page.dart';
+import 'l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/register/register_response.dart';
-import 'package:dicoding_story_app/features/auth/domain/repository/auth_repository.dart';
+import '../../../data/datasource/remote/model/register/register_response.dart';
+import '../../../domain/repository/auth_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

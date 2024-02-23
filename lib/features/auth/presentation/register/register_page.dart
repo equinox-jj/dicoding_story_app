@@ -1,5 +1,5 @@
-import 'package:dicoding_story_app/core/common/widgets/form_field_widget.dart';
-import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
+import '../../../../core/common/widgets/form_field_widget.dart';
+import 'bloc/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,7 +31,6 @@ class _RegisterPageState extends State<RegisterPage> {
           return state.maybeMap(
             orElse: () => const SizedBox.shrink(),
             loading: (value) {
-              print('rebuild loading');
               return const Center(
                 child: CircularProgressIndicator.adaptive(),
               );
@@ -40,7 +39,6 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Text(value.message),
             ),
             initial: (value) {
-              print('rebuild initial');
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -62,7 +60,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      print('rebuild button clicked');
                       context
                           .read<RegisterBloc>()
                           .add(RegisterEvent.registerUser(

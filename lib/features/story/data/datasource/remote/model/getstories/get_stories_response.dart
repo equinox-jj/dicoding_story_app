@@ -1,4 +1,4 @@
-import 'package:dicoding_story_app/features/story/data/datasource/remote/model/getstories/list_story_response.dart';
+import 'list_story_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'get_stories_response.freezed.dart';

@@ -1,7 +1,9 @@
-import 'package:dicoding_story_app/core/common/constants/constants.dart';
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/auth_remote_data_source.dart';
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/register/register_response.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../../core/common/constants/constants.dart';
+import 'auth_remote_data_source.dart';
+import 'model/login/login_response.dart';
+import 'model/register/register_response.dart';
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   final _dio = Dio(BaseOptions(
@@ -29,6 +31,23 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
     if (result.statusCode == 201) {
       return RegisterResponse.fromJson(result.data);
+    } else {
+      throw Exception();
+    }
+  }
+
+  @override
+  Future<LoginResponse> loginUser({
+    required String email,
+    required String password,
+  }) async {
+    final result = await _dio.post(Constants.LOGIN_EP, data: {
+      'email': email,
+      'password': password,
+    });
+
+    if (result.statusCode == 200) {
+      return LoginResponse.fromJson(result.data);
     } else {
       throw Exception();
     }

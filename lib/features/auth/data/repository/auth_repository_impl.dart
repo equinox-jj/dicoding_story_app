@@ -1,8 +1,9 @@
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/auth_remote_data_source.dart';
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/register/register_response.dart';
-import 'package:dicoding_story_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:dio/dio.dart';
-import 'package:either_dart/src/either.dart';
+import 'package:either_dart/either.dart';
+
+import '../../domain/repository/auth_repository.dart';
+import '../datasource/remote/auth_remote_data_source.dart';
+import '../datasource/remote/model/register/register_response.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
