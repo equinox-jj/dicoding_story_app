@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class FormFieldWidget extends StatelessWidget {
+  final TextEditingController? controller;
   final Function(String value)? onChanged;
   final int? maxLines;
   final List<TextInputFormatter>? textInputFormatter;
@@ -10,8 +11,8 @@ class FormFieldWidget extends StatelessWidget {
   final Color? formColor;
   final bool? filled;
   final String? hintText;
-  final Icon? preffixIcon;
-  final Icon? suffixIcon;
+  final Widget? preffixIcon;
+  final Widget? suffixIcon;
   final String? Function(String? value)? validator;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
@@ -31,15 +32,17 @@ class FormFieldWidget extends StatelessWidget {
     this.preffixIcon,
     this.suffixIcon,
     this.validator,
-    this.keyboardType = TextInputType.none,
-    this.textInputAction = TextInputAction.none,
+    this.keyboardType,
+    this.textInputAction,
     this.fontSize = 12.0,
     this.fontWeight = FontWeight.w500,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       maxLines: maxLines,
       inputFormatters: textInputFormatter,
       textCapitalization: textCapitalization,
@@ -48,7 +51,7 @@ class FormFieldWidget extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         fillColor: formColor,
         filled: filled,

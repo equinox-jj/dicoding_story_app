@@ -10,9 +10,7 @@ part 'story_detail_state.dart';
 class StoryDetailBloc extends Bloc<StoryDetailEvent, StoryDetailState> {
   final StoryRepository _storyRepository;
 
-  StoryDetailBloc(this._storyRepository) : super(_Initial()) {
-    on<StoryDetailEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  StoryDetailBloc(this._storyRepository) : super(const _Initial()) {
+    on<StoryDetailEvent>((event, emit) {});
   }
 }

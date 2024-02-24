@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import '../../../data/datasource/remote/model/register/register_response.dart';
-import '../../../domain/repository/auth_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../data/datasource/remote/model/register/register_response.dart';
+import '../../../domain/repository/auth_repository.dart';
 
 part 'register_bloc.freezed.dart';
 part 'register_event.dart';
@@ -13,8 +14,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   RegisterBloc(this._authRepository) : super(const _Initial()) {
     on<RegisterEvent>((event, emit) async {
-      await event.mapOrNull(
-        registerUser: (value) async {
+      event.mapOrNull(
+        onRegisterUser: (value) async {
           emit(const RegisterState.loading());
 
           final result = await _authRepository.registerUser(
@@ -28,6 +29,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
             (right) => emit(RegisterState.registerSuccess(right)),
           );
         },
+        onObscureText: (value) => emit(RegisterState.obscureText(
+          value.isObscure,
+        )),
       );
     });
   }

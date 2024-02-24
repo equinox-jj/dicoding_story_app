@@ -12,7 +12,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc(this._authRepository) : super(const _Initial()) {
     on<LoginEvent>((event, emit) {
-      // TODO: implement event handler
     });
   }
 }

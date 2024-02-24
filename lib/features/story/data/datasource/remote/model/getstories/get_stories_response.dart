@@ -1,5 +1,6 @@
-import 'list_story_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'list_story_response.dart';
 
 part 'get_stories_response.freezed.dart';
 part 'get_stories_response.g.dart';

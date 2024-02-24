@@ -10,9 +10,8 @@ part 'list_story_state.dart';
 class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
   final StoryRepository _storyRepository;
 
-  ListStoryBloc(this._storyRepository) : super(_Initial()) {
+  ListStoryBloc(this._storyRepository) : super(const _Initial()) {
     on<ListStoryEvent>((event, emit) {
-      // TODO: implement event handler
     });
   }
 }

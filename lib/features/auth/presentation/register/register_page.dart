@@ -1,5 +1,5 @@
-import '../../../../core/common/widgets/form_field_widget.dart';
-import 'bloc/register_bloc.dart';
+import 'package:dicoding_story_app/core/common/widgets/form_field_widget.dart';
+import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,56 +26,41 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<RegisterBloc, RegisterState>(
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () => const SizedBox.shrink(),
-            loading: (value) {
-              return const Center(
-                child: CircularProgressIndicator.adaptive(),
-              );
-            },
-            error: (value) => Center(
-              child: Text(value.message),
-            ),
-            initial: (value) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Register User'),
-                  FormFieldWidget(
-                    onChanged: (value) {
-                      usernameController.text = value;
-                    },
-                  ),
-                  FormFieldWidget(
-                    onChanged: (value) {
-                      emailController.text = value;
-                    },
-                  ),
-                  FormFieldWidget(
-                    onChanged: (value) {
-                      passwordController.text = value;
-                    },
-                  ),
-                  ElevatedButton(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            BlocSelector<RegisterBloc, RegisterState, bool>(
+              selector: (state) => state.maybeMap(
+                orElse: () => false,
+                obscureText: (value) => value.isObscure ? true : false,
+              ),
+              builder: (context, state) {
+                return FormFieldWidget(
+                  controller: passwordController,
+                  hintText: 'Input your password',
+                  maxLines: 1,
+                  obscureText: !state,
+                  preffixIcon: const Icon(Icons.lock_rounded),
+                  suffixIcon: IconButton(
                     onPressed: () {
                       context
                           .read<RegisterBloc>()
-                          .add(RegisterEvent.registerUser(
-                            usernameController.text,
-                            emailController.text,
-                            passwordController.text,
-                          ));
+                          .add(RegisterEvent.onObscureText(!state));
                     },
-                    child: const Text('Submit'),
+                    icon: state
+                        ? const Icon(Icons.visibility_rounded)
+                        : const Icon(Icons.visibility_off_rounded),
                   ),
-                ],
-              );
-            },
-          );
-        },
-        listener: (context, state) {},
+                  validator: (value) {
+                    return null;
+                  },
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }
