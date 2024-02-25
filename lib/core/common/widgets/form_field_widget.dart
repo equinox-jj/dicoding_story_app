@@ -5,6 +5,7 @@ class FormFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String value)? onChanged;
   final int? maxLines;
+  final int? maxLength;
   final List<TextInputFormatter>? textInputFormatter;
   final TextCapitalization textCapitalization;
   final bool obscureText;
@@ -37,6 +38,7 @@ class FormFieldWidget extends StatelessWidget {
     this.fontSize = 12.0,
     this.fontWeight = FontWeight.w500,
     this.controller,
+    this.maxLength,
   });
 
   @override
@@ -44,6 +46,7 @@ class FormFieldWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       maxLines: maxLines,
+      maxLength: maxLength,
       inputFormatters: textInputFormatter,
       textCapitalization: textCapitalization,
       textInputAction: textInputAction,

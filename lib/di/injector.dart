@@ -1,3 +1,8 @@
+import 'package:dicoding_story_app/core/helper/shared_preferences_helper.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../features/auth/data/datasource/remote/auth_remote_data_source.dart';
 import '../features/auth/data/datasource/remote/auth_remote_data_source_impl.dart';
 import '../features/auth/data/repository/auth_repository_impl.dart';
 import '../features/auth/domain/repository/auth_repository.dart';
@@ -10,13 +15,17 @@ import '../features/story/domain/repository/story_repository.dart';
 import '../features/story/presentation/addstory/bloc/add_story_bloc.dart';
 import '../features/story/presentation/liststory/bloc/list_story_bloc.dart';
 import '../features/story/presentation/storydetail/bloc/story_detail_bloc.dart';
-import 'package:get_it/get_it.dart';
-
-import '../features/auth/data/datasource/remote/auth_remote_data_source.dart';
 
 final sl = GetIt.instance;
 
 void init() {
+  sl.registerLazySingletonAsync(
+    () => SharedPreferences.getInstance(),
+  );
+  sl.registerLazySingleton(
+    () => SharedPreferencesHelper(preferences: sl()),
+  );
+
   sl.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(),
   );

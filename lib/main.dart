@@ -1,7 +1,7 @@
-import 'package:dicoding_story_app/features/auth/presentation/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/config/router.dart';
 import 'di/injector.dart';
 import 'features/auth/presentation/login/bloc/login_bloc.dart';
 import 'features/auth/presentation/register/bloc/register_bloc.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           create: (context) => sl<StoryDetailBloc>(),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -57,7 +57,10 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: const RegisterPage(),
+        routerConfig: router,
+        // routerDelegate: router.routerDelegate,
+        // routeInformationParser: router.routeInformationParser,
+        // routeInformationProvider: router.routeInformationProvider,
       ),
     );
   }
