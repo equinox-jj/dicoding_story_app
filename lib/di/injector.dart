@@ -1,7 +1,7 @@
-import '../core/helper/shared_preferences_helper.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../core/helper/shared_preferences_helper.dart';
 import '../features/auth/data/datasource/remote/auth_remote_data_source.dart';
 import '../features/auth/data/datasource/remote/auth_remote_data_source_impl.dart';
 import '../features/auth/data/repository/auth_repository_impl.dart';
@@ -19,10 +19,10 @@ import '../features/story/presentation/storydetail/bloc/story_detail_bloc.dart';
 final sl = GetIt.instance;
 
 void init() {
-  sl.registerLazySingletonAsync(
-    () => SharedPreferences.getInstance(),
-  );
   sl.registerLazySingleton(
+    () async => await SharedPreferences.getInstance(),
+  );
+  sl.registerLazySingleton<SharedPreferencesHelper>(
     () => SharedPreferencesHelper(preferences: sl()),
   );
 

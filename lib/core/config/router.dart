@@ -1,5 +1,7 @@
+import 'package:dicoding_story_app/core/helper/shared_preferences_helper.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../di/injector.dart';
 import '../../features/auth/presentation/login/login_page.dart';
 import '../../features/auth/presentation/register/register_page.dart';
 import '../../features/error/error_page.dart';
@@ -33,6 +35,14 @@ final router = GoRouter(
       routes: const [],
     ),
   ],
+  redirect: (context, state) async {
+    final prefs = sl<SharedPreferencesHelper>();
+    final token = await prefs.isTokenSaved;
+
+    token.isNotEmpty ? '/liststory' : null;
+
+    return null;
+  },
   errorBuilder: (context, state) {
     return const ErrorPage();
   },
