@@ -1,8 +1,9 @@
-import 'package:dicoding_story_app/features/auth/presentation/login/login_page.dart';
-import 'package:dicoding_story_app/features/auth/presentation/register/register_page.dart';
-import 'package:dicoding_story_app/features/error/error_page.dart';
-import 'package:dicoding_story_app/features/story/presentation/liststory/list_story_page.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../features/auth/presentation/login/login_page.dart';
+import '../../features/auth/presentation/register/register_page.dart';
+import '../../features/error/error_page.dart';
+import '../../features/story/presentation/liststory/list_story_page.dart';
 
 final router = GoRouter(
   initialLocation: '/',

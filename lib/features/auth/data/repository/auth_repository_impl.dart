@@ -1,4 +1,4 @@
-import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/login/login_response.dart';
+import '../datasource/remote/model/login/login_response.dart';
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 
