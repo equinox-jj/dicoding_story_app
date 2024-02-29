@@ -5,7 +5,8 @@ class RegisterState with _$RegisterState {
   const factory RegisterState.initial() = _Initial;
   const factory RegisterState.loading() = _Loading;
   const factory RegisterState.error(String message) = _Error;
-  const factory RegisterState.registerSuccess(RegisterResponse response) =
-      _RegisterSuccess;
+  const factory RegisterState.registerSuccess(
+    RegisterResponse response,
+  ) = _RegisterSuccess;
   const factory RegisterState.obscureText(bool isObscure) = _ObscureText;
 }

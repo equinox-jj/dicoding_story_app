@@ -1,3 +1,5 @@
+// ignore_for_file: await_only_futures
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,7 +16,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   RegisterBloc(this._authRepository) : super(const _Initial()) {
     on<RegisterEvent>((event, emit) async {
-      event.mapOrNull(
+      await event.mapOrNull(
         onRegisterUser: (value) async {
           emit(const RegisterState.loading());
 

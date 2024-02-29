@@ -5,6 +5,13 @@ class ListStoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('List Story Page'),
+      ),
+      body: const Center(
+        child: Text('Story List'),
+      ),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/login/login_response.dart';
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 
@@ -21,6 +22,23 @@ class AuthRepositoryImpl extends AuthRepository {
     try {
       final result = await _authRemoteDataSource.registerUser(
         name: name,
+        email: email,
+        password: password,
+      );
+
+      return Right(result);
+    } on DioException catch (e) {
+      return Left(Exception(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Exception, LoginResponse>> loginUser({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final result = await _authRemoteDataSource.loginUser(
         email: email,
         password: password,
       );
