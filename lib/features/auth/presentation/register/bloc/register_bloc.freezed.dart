@@ -18,42 +18,42 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String email, String password)
-        onRegisterUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? name, String? email, String? password)
+        registerUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnRegisterUser value) onRegisterUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnRegisterUser value) registerUser,
+    required TResult Function(_OnRegisterObscureText value) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnRegisterUser value)? onRegisterUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnRegisterUser value)? registerUser,
+    TResult? Function(_OnRegisterObscureText value)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnRegisterUser value)? onRegisterUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnRegisterUser value)? registerUser,
+    TResult Function(_OnRegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +83,7 @@ abstract class _$$OnRegisterUserImplCopyWith<$Res> {
           $Res Function(_$OnRegisterUserImpl) then) =
       __$$OnRegisterUserImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String name, String email, String password});
+  $Res call({String? name, String? email, String? password});
 }
 
 /// @nodoc
@@ -97,23 +97,23 @@ class __$$OnRegisterUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? email = null,
-    Object? password = null,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
   }) {
     return _then(_$OnRegisterUserImpl(
-      null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == password
+              as String?,
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -123,25 +123,25 @@ class __$$OnRegisterUserImplCopyWithImpl<$Res>
 class _$OnRegisterUserImpl
     with DiagnosticableTreeMixin
     implements _OnRegisterUser {
-  const _$OnRegisterUserImpl(this.name, this.email, this.password);
+  const _$OnRegisterUserImpl({this.name, this.email, this.password});
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String email;
+  final String? email;
   @override
-  final String password;
+  final String? password;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterEvent.onRegisterUser(name: $name, email: $email, password: $password)';
+    return 'RegisterEvent.registerUser(name: $name, email: $email, password: $password)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RegisterEvent.onRegisterUser'))
+      ..add(DiagnosticsProperty('type', 'RegisterEvent.registerUser'))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('password', password));
@@ -171,33 +171,33 @@ class _$OnRegisterUserImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String email, String password)
-        onRegisterUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? name, String? email, String? password)
+        registerUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return onRegisterUser(name, email, password);
+    return registerUser(name, email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return onRegisterUser?.call(name, email, password);
+    return registerUser?.call(name, email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onRegisterUser != null) {
-      return onRegisterUser(name, email, password);
+    if (registerUser != null) {
+      return registerUser(name, email, password);
     }
     return orElse();
   }
@@ -205,30 +205,30 @@ class _$OnRegisterUserImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnRegisterUser value) onRegisterUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnRegisterUser value) registerUser,
+    required TResult Function(_OnRegisterObscureText value) isTextObscured,
   }) {
-    return onRegisterUser(this);
+    return registerUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnRegisterUser value)? onRegisterUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnRegisterUser value)? registerUser,
+    TResult? Function(_OnRegisterObscureText value)? isTextObscured,
   }) {
-    return onRegisterUser?.call(this);
+    return registerUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnRegisterUser value)? onRegisterUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnRegisterUser value)? registerUser,
+    TResult Function(_OnRegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onRegisterUser != null) {
-      return onRegisterUser(this);
+    if (registerUser != null) {
+      return registerUser(this);
     }
     return orElse();
   }
@@ -236,32 +236,34 @@ class _$OnRegisterUserImpl
 
 abstract class _OnRegisterUser implements RegisterEvent {
   const factory _OnRegisterUser(
-          final String name, final String email, final String password) =
-      _$OnRegisterUserImpl;
+      {final String? name,
+      final String? email,
+      final String? password}) = _$OnRegisterUserImpl;
 
-  String get name;
-  String get email;
-  String get password;
+  String? get name;
+  String? get email;
+  String? get password;
   @JsonKey(ignore: true)
   _$$OnRegisterUserImplCopyWith<_$OnRegisterUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OnObscureTextImplCopyWith<$Res> {
-  factory _$$OnObscureTextImplCopyWith(
-          _$OnObscureTextImpl value, $Res Function(_$OnObscureTextImpl) then) =
-      __$$OnObscureTextImplCopyWithImpl<$Res>;
+abstract class _$$OnRegisterObscureTextImplCopyWith<$Res> {
+  factory _$$OnRegisterObscureTextImplCopyWith(
+          _$OnRegisterObscureTextImpl value,
+          $Res Function(_$OnRegisterObscureTextImpl) then) =
+      __$$OnRegisterObscureTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isObscure});
 }
 
 /// @nodoc
-class __$$OnObscureTextImplCopyWithImpl<$Res>
-    extends _$RegisterEventCopyWithImpl<$Res, _$OnObscureTextImpl>
-    implements _$$OnObscureTextImplCopyWith<$Res> {
-  __$$OnObscureTextImplCopyWithImpl(
-      _$OnObscureTextImpl _value, $Res Function(_$OnObscureTextImpl) _then)
+class __$$OnRegisterObscureTextImplCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res, _$OnRegisterObscureTextImpl>
+    implements _$$OnRegisterObscureTextImplCopyWith<$Res> {
+  __$$OnRegisterObscureTextImplCopyWithImpl(_$OnRegisterObscureTextImpl _value,
+      $Res Function(_$OnRegisterObscureTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,8 +271,8 @@ class __$$OnObscureTextImplCopyWithImpl<$Res>
   $Res call({
     Object? isObscure = null,
   }) {
-    return _then(_$OnObscureTextImpl(
-      null == isObscure
+    return _then(_$OnRegisterObscureTextImpl(
+      isObscure: null == isObscure
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -280,24 +282,24 @@ class __$$OnObscureTextImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnObscureTextImpl
+class _$OnRegisterObscureTextImpl
     with DiagnosticableTreeMixin
-    implements _OnObscureText {
-  const _$OnObscureTextImpl(this.isObscure);
+    implements _OnRegisterObscureText {
+  const _$OnRegisterObscureTextImpl({required this.isObscure});
 
   @override
   final bool isObscure;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterEvent.onObscureText(isObscure: $isObscure)';
+    return 'RegisterEvent.isTextObscured(isObscure: $isObscure)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RegisterEvent.onObscureText'))
+      ..add(DiagnosticsProperty('type', 'RegisterEvent.isTextObscured'))
       ..add(DiagnosticsProperty('isObscure', isObscure));
   }
 
@@ -305,7 +307,7 @@ class _$OnObscureTextImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnObscureTextImpl &&
+            other is _$OnRegisterObscureTextImpl &&
             (identical(other.isObscure, isObscure) ||
                 other.isObscure == isObscure));
   }
@@ -316,39 +318,40 @@ class _$OnObscureTextImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnObscureTextImplCopyWith<_$OnObscureTextImpl> get copyWith =>
-      __$$OnObscureTextImplCopyWithImpl<_$OnObscureTextImpl>(this, _$identity);
+  _$$OnRegisterObscureTextImplCopyWith<_$OnRegisterObscureTextImpl>
+      get copyWith => __$$OnRegisterObscureTextImplCopyWithImpl<
+          _$OnRegisterObscureTextImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String email, String password)
-        onRegisterUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? name, String? email, String? password)
+        registerUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return onObscureText(isObscure);
+    return isTextObscured(isObscure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return onObscureText?.call(isObscure);
+    return isTextObscured?.call(isObscure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String email, String password)?
-        onRegisterUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? name, String? email, String? password)?
+        registerUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onObscureText != null) {
-      return onObscureText(isObscure);
+    if (isTextObscured != null) {
+      return isTextObscured(isObscure);
     }
     return orElse();
   }
@@ -356,42 +359,43 @@ class _$OnObscureTextImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnRegisterUser value) onRegisterUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnRegisterUser value) registerUser,
+    required TResult Function(_OnRegisterObscureText value) isTextObscured,
   }) {
-    return onObscureText(this);
+    return isTextObscured(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnRegisterUser value)? onRegisterUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnRegisterUser value)? registerUser,
+    TResult? Function(_OnRegisterObscureText value)? isTextObscured,
   }) {
-    return onObscureText?.call(this);
+    return isTextObscured?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnRegisterUser value)? onRegisterUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnRegisterUser value)? registerUser,
+    TResult Function(_OnRegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onObscureText != null) {
-      return onObscureText(this);
+    if (isTextObscured != null) {
+      return isTextObscured(this);
     }
     return orElse();
   }
 }
 
-abstract class _OnObscureText implements RegisterEvent {
-  const factory _OnObscureText(final bool isObscure) = _$OnObscureTextImpl;
+abstract class _OnRegisterObscureText implements RegisterEvent {
+  const factory _OnRegisterObscureText({required final bool isObscure}) =
+      _$OnRegisterObscureTextImpl;
 
   bool get isObscure;
   @JsonKey(ignore: true)
-  _$$OnObscureTextImplCopyWith<_$OnObscureTextImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$OnRegisterObscureTextImplCopyWith<_$OnRegisterObscureTextImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -400,55 +404,55 @@ mixin _$RegisterState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -473,25 +477,27 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$RegisterInitialImplCopyWith<$Res> {
+  factory _$$RegisterInitialImplCopyWith(_$RegisterInitialImpl value,
+          $Res Function(_$RegisterInitialImpl) then) =
+      __$$RegisterInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$RegisterInitialImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterInitialImpl>
+    implements _$$RegisterInitialImplCopyWith<$Res> {
+  __$$RegisterInitialImplCopyWithImpl(
+      _$RegisterInitialImpl _value, $Res Function(_$RegisterInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
-  const _$InitialImpl();
+class _$RegisterInitialImpl
+    with DiagnosticableTreeMixin
+    implements RegisterInitial {
+  const _$RegisterInitialImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -507,7 +513,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$RegisterInitialImpl);
   }
 
   @override
@@ -518,9 +524,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return initial();
   }
@@ -530,9 +536,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return initial?.call();
   }
@@ -542,9 +548,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -556,11 +562,11 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) {
     return initial(this);
   }
@@ -568,11 +574,11 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) {
     return initial?.call(this);
   }
@@ -580,11 +586,11 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -594,30 +600,32 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   }
 }
 
-abstract class _Initial implements RegisterState {
-  const factory _Initial() = _$InitialImpl;
+abstract class RegisterInitial implements RegisterState {
+  const factory RegisterInitial() = _$RegisterInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$RegisterLoadingImplCopyWith<$Res> {
+  factory _$$RegisterLoadingImplCopyWith(_$RegisterLoadingImpl value,
+          $Res Function(_$RegisterLoadingImpl) then) =
+      __$$RegisterLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$RegisterLoadingImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterLoadingImpl>
+    implements _$$RegisterLoadingImplCopyWith<$Res> {
+  __$$RegisterLoadingImplCopyWithImpl(
+      _$RegisterLoadingImpl _value, $Res Function(_$RegisterLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
-  const _$LoadingImpl();
+class _$RegisterLoadingImpl
+    with DiagnosticableTreeMixin
+    implements RegisterLoading {
+  const _$RegisterLoadingImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -633,7 +641,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType && other is _$RegisterLoadingImpl);
   }
 
   @override
@@ -644,9 +652,9 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return loading();
   }
@@ -656,9 +664,9 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return loading?.call();
   }
@@ -668,9 +676,9 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -682,11 +690,11 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) {
     return loading(this);
   }
@@ -694,11 +702,11 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) {
     return loading?.call(this);
   }
@@ -706,11 +714,11 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -720,48 +728,50 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   }
 }
 
-abstract class _Loading implements RegisterState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class RegisterLoading implements RegisterState {
+  const factory RegisterLoading() = _$RegisterLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$RegisterErrorImplCopyWith<$Res> {
+  factory _$$RegisterErrorImplCopyWith(
+          _$RegisterErrorImpl value, $Res Function(_$RegisterErrorImpl) then) =
+      __$$RegisterErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$RegisterErrorImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterErrorImpl>
+    implements _$$RegisterErrorImplCopyWith<$Res> {
+  __$$RegisterErrorImplCopyWithImpl(
+      _$RegisterErrorImpl _value, $Res Function(_$RegisterErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? message = freezed,
   }) {
-    return _then(_$ErrorImpl(
-      null == message
+    return _then(_$RegisterErrorImpl(
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
-  const _$ErrorImpl(this.message);
+class _$RegisterErrorImpl
+    with DiagnosticableTreeMixin
+    implements RegisterError {
+  const _$RegisterErrorImpl({this.message});
 
   @override
-  final String message;
+  final String? message;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -780,7 +790,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
+            other is _$RegisterErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -790,17 +800,17 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+  _$$RegisterErrorImplCopyWith<_$RegisterErrorImpl> get copyWith =>
+      __$$RegisterErrorImplCopyWithImpl<_$RegisterErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return error(message);
   }
@@ -810,9 +820,9 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return error?.call(message);
   }
@@ -822,9 +832,9 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -836,11 +846,11 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) {
     return error(this);
   }
@@ -848,11 +858,11 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) {
     return error?.call(this);
   }
@@ -860,11 +870,11 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -874,12 +884,12 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   }
 }
 
-abstract class _Error implements RegisterState {
-  const factory _Error(final String message) = _$ErrorImpl;
+abstract class RegisterError implements RegisterState {
+  const factory RegisterError({final String? message}) = _$RegisterErrorImpl;
 
-  String get message;
+  String? get message;
   @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+  _$$RegisterErrorImplCopyWith<_$RegisterErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -889,9 +899,9 @@ abstract class _$$RegisterSuccessImplCopyWith<$Res> {
           $Res Function(_$RegisterSuccessImpl) then) =
       __$$RegisterSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RegisterResponse response});
+  $Res call({RegisterResponse? response});
 
-  $RegisterResponseCopyWith<$Res> get response;
+  $RegisterResponseCopyWith<$Res>? get response;
 }
 
 /// @nodoc
@@ -905,20 +915,24 @@ class __$$RegisterSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = null,
+    Object? response = freezed,
   }) {
     return _then(_$RegisterSuccessImpl(
-      null == response
+      response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as RegisterResponse,
+              as RegisterResponse?,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RegisterResponseCopyWith<$Res> get response {
-    return $RegisterResponseCopyWith<$Res>(_value.response, (value) {
+  $RegisterResponseCopyWith<$Res>? get response {
+    if (_value.response == null) {
+      return null;
+    }
+
+    return $RegisterResponseCopyWith<$Res>(_value.response!, (value) {
       return _then(_value.copyWith(response: value));
     });
   }
@@ -928,22 +942,22 @@ class __$$RegisterSuccessImplCopyWithImpl<$Res>
 
 class _$RegisterSuccessImpl
     with DiagnosticableTreeMixin
-    implements _RegisterSuccess {
-  const _$RegisterSuccessImpl(this.response);
+    implements RegisterSuccess {
+  const _$RegisterSuccessImpl({this.response});
 
   @override
-  final RegisterResponse response;
+  final RegisterResponse? response;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterState.registerSuccess(response: $response)';
+    return 'RegisterState.success(response: $response)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RegisterState.registerSuccess'))
+      ..add(DiagnosticsProperty('type', 'RegisterState.success'))
       ..add(DiagnosticsProperty('response', response));
   }
 
@@ -971,11 +985,11 @@ class _$RegisterSuccessImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return registerSuccess(response);
+    return success(response);
   }
 
   @override
@@ -983,11 +997,11 @@ class _$RegisterSuccessImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return registerSuccess?.call(response);
+    return success?.call(response);
   }
 
   @override
@@ -995,13 +1009,13 @@ class _$RegisterSuccessImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (registerSuccess != null) {
-      return registerSuccess(response);
+    if (success != null) {
+      return success(response);
     }
     return orElse();
   }
@@ -1009,69 +1023,69 @@ class _$RegisterSuccessImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) {
-    return registerSuccess(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) {
-    return registerSuccess?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (registerSuccess != null) {
-      return registerSuccess(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
-abstract class _RegisterSuccess implements RegisterState {
-  const factory _RegisterSuccess(final RegisterResponse response) =
+abstract class RegisterSuccess implements RegisterState {
+  const factory RegisterSuccess({final RegisterResponse? response}) =
       _$RegisterSuccessImpl;
 
-  RegisterResponse get response;
+  RegisterResponse? get response;
   @JsonKey(ignore: true)
   _$$RegisterSuccessImplCopyWith<_$RegisterSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ObscureTextImplCopyWith<$Res> {
-  factory _$$ObscureTextImplCopyWith(
-          _$ObscureTextImpl value, $Res Function(_$ObscureTextImpl) then) =
-      __$$ObscureTextImplCopyWithImpl<$Res>;
+abstract class _$$RegisterObscureTextImplCopyWith<$Res> {
+  factory _$$RegisterObscureTextImplCopyWith(_$RegisterObscureTextImpl value,
+          $Res Function(_$RegisterObscureTextImpl) then) =
+      __$$RegisterObscureTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isObscure});
 }
 
 /// @nodoc
-class __$$ObscureTextImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$ObscureTextImpl>
-    implements _$$ObscureTextImplCopyWith<$Res> {
-  __$$ObscureTextImplCopyWithImpl(
-      _$ObscureTextImpl _value, $Res Function(_$ObscureTextImpl) _then)
+class __$$RegisterObscureTextImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterObscureTextImpl>
+    implements _$$RegisterObscureTextImplCopyWith<$Res> {
+  __$$RegisterObscureTextImplCopyWithImpl(_$RegisterObscureTextImpl _value,
+      $Res Function(_$RegisterObscureTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1079,8 +1093,8 @@ class __$$ObscureTextImplCopyWithImpl<$Res>
   $Res call({
     Object? isObscure = null,
   }) {
-    return _then(_$ObscureTextImpl(
-      null == isObscure
+    return _then(_$RegisterObscureTextImpl(
+      isObscure: null == isObscure
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1090,22 +1104,24 @@ class __$$ObscureTextImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
-  const _$ObscureTextImpl(this.isObscure);
+class _$RegisterObscureTextImpl
+    with DiagnosticableTreeMixin
+    implements RegisterObscureText {
+  const _$RegisterObscureTextImpl({required this.isObscure});
 
   @override
   final bool isObscure;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterState.obscureText(isObscure: $isObscure)';
+    return 'RegisterState.isTextObscured(isObscure: $isObscure)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RegisterState.obscureText'))
+      ..add(DiagnosticsProperty('type', 'RegisterState.isTextObscured'))
       ..add(DiagnosticsProperty('isObscure', isObscure));
   }
 
@@ -1113,7 +1129,7 @@ class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ObscureTextImpl &&
+            other is _$RegisterObscureTextImpl &&
             (identical(other.isObscure, isObscure) ||
                 other.isObscure == isObscure));
   }
@@ -1124,19 +1140,20 @@ class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ObscureTextImplCopyWith<_$ObscureTextImpl> get copyWith =>
-      __$$ObscureTextImplCopyWithImpl<_$ObscureTextImpl>(this, _$identity);
+  _$$RegisterObscureTextImplCopyWith<_$RegisterObscureTextImpl> get copyWith =>
+      __$$RegisterObscureTextImplCopyWithImpl<_$RegisterObscureTextImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(RegisterResponse response) registerSuccess,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(RegisterResponse? response) success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return obscureText(isObscure);
+    return isTextObscured(isObscure);
   }
 
   @override
@@ -1144,11 +1161,11 @@ class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(RegisterResponse response)? registerSuccess,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(RegisterResponse? response)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return obscureText?.call(isObscure);
+    return isTextObscured?.call(isObscure);
   }
 
   @override
@@ -1156,13 +1173,13 @@ class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(RegisterResponse response)? registerSuccess,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(RegisterResponse? response)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (obscureText != null) {
-      return obscureText(isObscure);
+    if (isTextObscured != null) {
+      return isTextObscured(isObscure);
     }
     return orElse();
   }
@@ -1170,49 +1187,50 @@ class _$ObscureTextImpl with DiagnosticableTreeMixin implements _ObscureText {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_RegisterSuccess value) registerSuccess,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(RegisterInitial value) initial,
+    required TResult Function(RegisterLoading value) loading,
+    required TResult Function(RegisterError value) error,
+    required TResult Function(RegisterSuccess value) success,
+    required TResult Function(RegisterObscureText value) isTextObscured,
   }) {
-    return obscureText(this);
+    return isTextObscured(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_RegisterSuccess value)? registerSuccess,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(RegisterInitial value)? initial,
+    TResult? Function(RegisterLoading value)? loading,
+    TResult? Function(RegisterError value)? error,
+    TResult? Function(RegisterSuccess value)? success,
+    TResult? Function(RegisterObscureText value)? isTextObscured,
   }) {
-    return obscureText?.call(this);
+    return isTextObscured?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_RegisterSuccess value)? registerSuccess,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(RegisterInitial value)? initial,
+    TResult Function(RegisterLoading value)? loading,
+    TResult Function(RegisterError value)? error,
+    TResult Function(RegisterSuccess value)? success,
+    TResult Function(RegisterObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (obscureText != null) {
-      return obscureText(this);
+    if (isTextObscured != null) {
+      return isTextObscured(this);
     }
     return orElse();
   }
 }
 
-abstract class _ObscureText implements RegisterState {
-  const factory _ObscureText(final bool isObscure) = _$ObscureTextImpl;
+abstract class RegisterObscureText implements RegisterState {
+  const factory RegisterObscureText({required final bool isObscure}) =
+      _$RegisterObscureTextImpl;
 
   bool get isObscure;
   @JsonKey(ignore: true)
-  _$$ObscureTextImplCopyWith<_$ObscureTextImpl> get copyWith =>
+  _$$RegisterObscureTextImplCopyWith<_$RegisterObscureTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,14 +10,14 @@ _$LoginResponseImpl _$$LoginResponseImplFromJson(Map<String, dynamic> json) =>
     _$LoginResponseImpl(
       error: json['error'] as bool?,
       message: json['message'] as String?,
-      result: json['result'] == null
+      loginResult: json['loginResult'] == null
           ? null
-          : LoginResult.fromJson(json['result'] as Map<String, dynamic>),
+          : LoginResult.fromJson(json['loginResult'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$LoginResponseImplToJson(_$LoginResponseImpl instance) =>
     <String, dynamic>{
       'error': instance.error,
       'message': instance.message,
-      'result': instance.result,
+      'loginResult': instance.loginResult,
     };

@@ -11,10 +11,9 @@ _$GetStoriesResponseImpl _$$GetStoriesResponseImplFromJson(
     _$GetStoriesResponseImpl(
       error: json['error'] as bool?,
       message: json['message'] as String?,
-      listStory: json['listStory'] == null
-          ? null
-          : ListStoryResponse.fromJson(
-              json['listStory'] as Map<String, dynamic>),
+      listStory: (json['listStory'] as List<dynamic>?)
+          ?.map((e) => ListStoryResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$GetStoriesResponseImplToJson(

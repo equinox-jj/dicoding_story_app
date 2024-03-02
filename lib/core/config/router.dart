@@ -1,4 +1,8 @@
 import 'package:dicoding_story_app/core/helper/shared_preferences_helper.dart';
+import 'package:dicoding_story_app/features/auth/presentation/login/bloc/login_bloc.dart';
+import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
+import 'package:dicoding_story_app/features/story/presentation/liststory/bloc/list_story_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../di/injector.dart';
@@ -14,14 +18,20 @@ final router = GoRouter(
       name: 'initial',
       path: '/',
       builder: (context, state) {
-        return const LoginPage();
+        return BlocProvider(
+          create: (context) => sl<LoginBloc>(),
+          child: const LoginPage(),
+        );
       },
       routes: [
         GoRoute(
           name: 'register',
           path: 'register',
           builder: (context, state) {
-            return const RegisterPage();
+            return BlocProvider(
+              create: (context) => sl<RegisterBloc>(),
+              child: const RegisterPage(),
+            );
           },
         ),
       ],
@@ -30,18 +40,24 @@ final router = GoRouter(
       name: 'liststory',
       path: '/liststory',
       builder: (context, state) {
-        return const ListStoryPage();
+        return BlocProvider(
+          create: (context) =>
+              sl<ListStoryBloc>()..add(const ListStoryEvent.getListStory(
+                page: 1,
+                size: 20,
+                location: 1,
+              )),
+          child: const ListStoryPage(),
+        );
       },
       routes: const [],
     ),
   ],
   redirect: (context, state) async {
     final prefs = sl<SharedPreferencesHelper>();
-    final token = await prefs.isTokenSaved;
+    final token = await prefs.getToken;
 
-    token.isNotEmpty ? '/liststory' : null;
-
-    return null;
+    return token.isNotEmpty ? '/liststory' : null;
   },
   errorBuilder: (context, state) {
     return const ErrorPage();

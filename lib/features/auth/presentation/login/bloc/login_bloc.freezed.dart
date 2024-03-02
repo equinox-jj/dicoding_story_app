@@ -18,39 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) onLoginUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? email, String? password) loginUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? onLoginUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? email, String? password)? loginUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? onLoginUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? email, String? password)? loginUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnLoginUser value) onLoginUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnLoginUser value) loginUser,
+    required TResult Function(_OnLoginObscureText value) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnLoginUser value)? onLoginUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnLoginUser value)? loginUser,
+    TResult? Function(_OnLoginObscureText value)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnLoginUser value)? onLoginUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnLoginUser value)? loginUser,
+    TResult Function(_OnLoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,7 +80,7 @@ abstract class _$$OnLoginUserImplCopyWith<$Res> {
           _$OnLoginUserImpl value, $Res Function(_$OnLoginUserImpl) then) =
       __$$OnLoginUserImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String? email, String? password});
 }
 
 /// @nodoc
@@ -94,18 +94,18 @@ class __$$OnLoginUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
+    Object? email = freezed,
+    Object? password = freezed,
   }) {
     return _then(_$OnLoginUserImpl(
-      null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == password
+              as String?,
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -113,16 +113,16 @@ class __$$OnLoginUserImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OnLoginUserImpl implements _OnLoginUser {
-  const _$OnLoginUserImpl(this.email, this.password);
+  const _$OnLoginUserImpl({this.email, this.password});
 
   @override
-  final String email;
+  final String? email;
   @override
-  final String password;
+  final String? password;
 
   @override
   String toString() {
-    return 'LoginEvent.onLoginUser(email: $email, password: $password)';
+    return 'LoginEvent.loginUser(email: $email, password: $password)';
   }
 
   @override
@@ -147,30 +147,30 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) onLoginUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? email, String? password) loginUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return onLoginUser(email, password);
+    return loginUser(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? onLoginUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? email, String? password)? loginUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return onLoginUser?.call(email, password);
+    return loginUser?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? onLoginUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? email, String? password)? loginUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onLoginUser != null) {
-      return onLoginUser(email, password);
+    if (loginUser != null) {
+      return loginUser(email, password);
     }
     return orElse();
   }
@@ -178,61 +178,61 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnLoginUser value) onLoginUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnLoginUser value) loginUser,
+    required TResult Function(_OnLoginObscureText value) isTextObscured,
   }) {
-    return onLoginUser(this);
+    return loginUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnLoginUser value)? onLoginUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnLoginUser value)? loginUser,
+    TResult? Function(_OnLoginObscureText value)? isTextObscured,
   }) {
-    return onLoginUser?.call(this);
+    return loginUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnLoginUser value)? onLoginUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnLoginUser value)? loginUser,
+    TResult Function(_OnLoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onLoginUser != null) {
-      return onLoginUser(this);
+    if (loginUser != null) {
+      return loginUser(this);
     }
     return orElse();
   }
 }
 
 abstract class _OnLoginUser implements LoginEvent {
-  const factory _OnLoginUser(final String email, final String password) =
+  const factory _OnLoginUser({final String? email, final String? password}) =
       _$OnLoginUserImpl;
 
-  String get email;
-  String get password;
+  String? get email;
+  String? get password;
   @JsonKey(ignore: true)
   _$$OnLoginUserImplCopyWith<_$OnLoginUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OnObscureTextImplCopyWith<$Res> {
-  factory _$$OnObscureTextImplCopyWith(
-          _$OnObscureTextImpl value, $Res Function(_$OnObscureTextImpl) then) =
-      __$$OnObscureTextImplCopyWithImpl<$Res>;
+abstract class _$$OnLoginObscureTextImplCopyWith<$Res> {
+  factory _$$OnLoginObscureTextImplCopyWith(_$OnLoginObscureTextImpl value,
+          $Res Function(_$OnLoginObscureTextImpl) then) =
+      __$$OnLoginObscureTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isObscure});
 }
 
 /// @nodoc
-class __$$OnObscureTextImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$OnObscureTextImpl>
-    implements _$$OnObscureTextImplCopyWith<$Res> {
-  __$$OnObscureTextImplCopyWithImpl(
-      _$OnObscureTextImpl _value, $Res Function(_$OnObscureTextImpl) _then)
+class __$$OnLoginObscureTextImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$OnLoginObscureTextImpl>
+    implements _$$OnLoginObscureTextImplCopyWith<$Res> {
+  __$$OnLoginObscureTextImplCopyWithImpl(_$OnLoginObscureTextImpl _value,
+      $Res Function(_$OnLoginObscureTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -240,8 +240,8 @@ class __$$OnObscureTextImplCopyWithImpl<$Res>
   $Res call({
     Object? isObscure = null,
   }) {
-    return _then(_$OnObscureTextImpl(
-      null == isObscure
+    return _then(_$OnLoginObscureTextImpl(
+      isObscure: null == isObscure
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -251,22 +251,22 @@ class __$$OnObscureTextImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnObscureTextImpl implements _OnObscureText {
-  const _$OnObscureTextImpl(this.isObscure);
+class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
+  const _$OnLoginObscureTextImpl({required this.isObscure});
 
   @override
   final bool isObscure;
 
   @override
   String toString() {
-    return 'LoginEvent.onObscureText(isObscure: $isObscure)';
+    return 'LoginEvent.isTextObscured(isObscure: $isObscure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnObscureTextImpl &&
+            other is _$OnLoginObscureTextImpl &&
             (identical(other.isObscure, isObscure) ||
                 other.isObscure == isObscure));
   }
@@ -277,36 +277,37 @@ class _$OnObscureTextImpl implements _OnObscureText {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnObscureTextImplCopyWith<_$OnObscureTextImpl> get copyWith =>
-      __$$OnObscureTextImplCopyWithImpl<_$OnObscureTextImpl>(this, _$identity);
+  _$$OnLoginObscureTextImplCopyWith<_$OnLoginObscureTextImpl> get copyWith =>
+      __$$OnLoginObscureTextImplCopyWithImpl<_$OnLoginObscureTextImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) onLoginUser,
-    required TResult Function(bool isObscure) onObscureText,
+    required TResult Function(String? email, String? password) loginUser,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return onObscureText(isObscure);
+    return isTextObscured(isObscure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? onLoginUser,
-    TResult? Function(bool isObscure)? onObscureText,
+    TResult? Function(String? email, String? password)? loginUser,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return onObscureText?.call(isObscure);
+    return isTextObscured?.call(isObscure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? onLoginUser,
-    TResult Function(bool isObscure)? onObscureText,
+    TResult Function(String? email, String? password)? loginUser,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onObscureText != null) {
-      return onObscureText(isObscure);
+    if (isTextObscured != null) {
+      return isTextObscured(isObscure);
     }
     return orElse();
   }
@@ -314,41 +315,42 @@ class _$OnObscureTextImpl implements _OnObscureText {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnLoginUser value) onLoginUser,
-    required TResult Function(_OnObscureText value) onObscureText,
+    required TResult Function(_OnLoginUser value) loginUser,
+    required TResult Function(_OnLoginObscureText value) isTextObscured,
   }) {
-    return onObscureText(this);
+    return isTextObscured(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnLoginUser value)? onLoginUser,
-    TResult? Function(_OnObscureText value)? onObscureText,
+    TResult? Function(_OnLoginUser value)? loginUser,
+    TResult? Function(_OnLoginObscureText value)? isTextObscured,
   }) {
-    return onObscureText?.call(this);
+    return isTextObscured?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnLoginUser value)? onLoginUser,
-    TResult Function(_OnObscureText value)? onObscureText,
+    TResult Function(_OnLoginUser value)? loginUser,
+    TResult Function(_OnLoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (onObscureText != null) {
-      return onObscureText(this);
+    if (isTextObscured != null) {
+      return isTextObscured(this);
     }
     return orElse();
   }
 }
 
-abstract class _OnObscureText implements LoginEvent {
-  const factory _OnObscureText(final bool isObscure) = _$OnObscureTextImpl;
+abstract class _OnLoginObscureText implements LoginEvent {
+  const factory _OnLoginObscureText({required final bool isObscure}) =
+      _$OnLoginObscureTextImpl;
 
   bool get isObscure;
   @JsonKey(ignore: true)
-  _$$OnObscureTextImplCopyWith<_$OnObscureTextImpl> get copyWith =>
+  _$$OnLoginObscureTextImplCopyWith<_$OnLoginObscureTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -358,55 +360,56 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -431,25 +434,25 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$LoginInitialImplCopyWith<$Res> {
+  factory _$$LoginInitialImplCopyWith(
+          _$LoginInitialImpl value, $Res Function(_$LoginInitialImpl) then) =
+      __$$LoginInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$LoginInitialImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginInitialImpl>
+    implements _$$LoginInitialImplCopyWith<$Res> {
+  __$$LoginInitialImplCopyWithImpl(
+      _$LoginInitialImpl _value, $Res Function(_$LoginInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$LoginInitialImpl implements LoginInitial {
+  const _$LoginInitialImpl();
 
   @override
   String toString() {
@@ -459,7 +462,7 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$LoginInitialImpl);
   }
 
   @override
@@ -470,9 +473,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return initial();
   }
@@ -482,9 +486,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return initial?.call();
   }
@@ -494,9 +498,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -508,11 +512,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) {
     return initial(this);
   }
@@ -520,11 +524,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) {
     return initial?.call(this);
   }
@@ -532,11 +536,11 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -546,30 +550,30 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements LoginState {
-  const factory _Initial() = _$InitialImpl;
+abstract class LoginInitial implements LoginState {
+  const factory LoginInitial() = _$LoginInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$LoginLoadingImplCopyWith<$Res> {
+  factory _$$LoginLoadingImplCopyWith(
+          _$LoginLoadingImpl value, $Res Function(_$LoginLoadingImpl) then) =
+      __$$LoginLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$LoginLoadingImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginLoadingImpl>
+    implements _$$LoginLoadingImplCopyWith<$Res> {
+  __$$LoginLoadingImplCopyWithImpl(
+      _$LoginLoadingImpl _value, $Res Function(_$LoginLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
+class _$LoginLoadingImpl implements LoginLoading {
+  const _$LoginLoadingImpl();
 
   @override
   String toString() {
@@ -579,7 +583,7 @@ class _$LoadingImpl implements _Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType && other is _$LoginLoadingImpl);
   }
 
   @override
@@ -590,9 +594,10 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return loading();
   }
@@ -602,9 +607,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return loading?.call();
   }
@@ -614,9 +619,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -628,11 +633,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) {
     return loading(this);
   }
@@ -640,11 +645,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) {
     return loading?.call(this);
   }
@@ -652,11 +657,11 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -666,48 +671,48 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements LoginState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class LoginLoading implements LoginState {
+  const factory LoginLoading() = _$LoginLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$LoginErrorImplCopyWith<$Res> {
+  factory _$$LoginErrorImplCopyWith(
+          _$LoginErrorImpl value, $Res Function(_$LoginErrorImpl) then) =
+      __$$LoginErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$LoginErrorImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginErrorImpl>
+    implements _$$LoginErrorImplCopyWith<$Res> {
+  __$$LoginErrorImplCopyWithImpl(
+      _$LoginErrorImpl _value, $Res Function(_$LoginErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? message = freezed,
   }) {
-    return _then(_$ErrorImpl(
-      null == message
+    return _then(_$LoginErrorImpl(
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.message);
+class _$LoginErrorImpl implements LoginError {
+  const _$LoginErrorImpl({this.message});
 
   @override
-  final String message;
+  final String? message;
 
   @override
   String toString() {
@@ -718,7 +723,7 @@ class _$ErrorImpl implements _Error {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
+            other is _$LoginErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -728,17 +733,18 @@ class _$ErrorImpl implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+  _$$LoginErrorImplCopyWith<_$LoginErrorImpl> get copyWith =>
+      __$$LoginErrorImplCopyWithImpl<_$LoginErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
     return error(message);
   }
@@ -748,9 +754,9 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
     return error?.call(message);
   }
@@ -760,9 +766,9 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -774,11 +780,11 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) {
     return error(this);
   }
@@ -786,11 +792,11 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) {
     return error?.call(this);
   }
@@ -798,11 +804,11 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -812,51 +818,60 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements LoginState {
-  const factory _Error(final String message) = _$ErrorImpl;
+abstract class LoginError implements LoginState {
+  const factory LoginError({final String? message}) = _$LoginErrorImpl;
 
-  String get message;
+  String? get message;
   @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+  _$$LoginErrorImplCopyWith<_$LoginErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+abstract class _$$LoginSuccessImplCopyWith<$Res> {
+  factory _$$LoginSuccessImplCopyWith(
+          _$LoginSuccessImpl value, $Res Function(_$LoginSuccessImpl) then) =
+      __$$LoginSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({LoginResponse response});
+  $Res call({LoginResponse? response, String authToken});
 
-  $LoginResponseCopyWith<$Res> get response;
+  $LoginResponseCopyWith<$Res>? get response;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+class __$$LoginSuccessImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginSuccessImpl>
+    implements _$$LoginSuccessImplCopyWith<$Res> {
+  __$$LoginSuccessImplCopyWithImpl(
+      _$LoginSuccessImpl _value, $Res Function(_$LoginSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = null,
+    Object? response = freezed,
+    Object? authToken = null,
   }) {
-    return _then(_$SuccessImpl(
-      null == response
+    return _then(_$LoginSuccessImpl(
+      response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as LoginResponse,
+              as LoginResponse?,
+      authToken: null == authToken
+          ? _value.authToken
+          : authToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LoginResponseCopyWith<$Res> get response {
-    return $LoginResponseCopyWith<$Res>(_value.response, (value) {
+  $LoginResponseCopyWith<$Res>? get response {
+    if (_value.response == null) {
+      return null;
+    }
+
+    return $LoginResponseCopyWith<$Res>(_value.response!, (value) {
       return _then(_value.copyWith(response: value));
     });
   }
@@ -864,45 +879,50 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.response);
+class _$LoginSuccessImpl implements LoginSuccess {
+  const _$LoginSuccessImpl({this.response, required this.authToken});
 
   @override
-  final LoginResponse response;
+  final LoginResponse? response;
+  @override
+  final String authToken;
 
   @override
   String toString() {
-    return 'LoginState.success(response: $response)';
+    return 'LoginState.success(response: $response, authToken: $authToken)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
+            other is _$LoginSuccessImpl &&
             (identical(other.response, response) ||
-                other.response == response));
+                other.response == response) &&
+            (identical(other.authToken, authToken) ||
+                other.authToken == authToken));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, response);
+  int get hashCode => Object.hash(runtimeType, response, authToken);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
+      __$$LoginSuccessImplCopyWithImpl<_$LoginSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return success(response);
+    return success(response, authToken);
   }
 
   @override
@@ -910,11 +930,11 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return success?.call(response);
+    return success?.call(response, authToken);
   }
 
   @override
@@ -922,13 +942,13 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(response);
+      return success(response, authToken);
     }
     return orElse();
   }
@@ -936,11 +956,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) {
     return success(this);
   }
@@ -948,11 +968,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) {
     return success?.call(this);
   }
@@ -960,11 +980,11 @@ class _$SuccessImpl implements _Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -974,30 +994,33 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements LoginState {
-  const factory _Success(final LoginResponse response) = _$SuccessImpl;
+abstract class LoginSuccess implements LoginState {
+  const factory LoginSuccess(
+      {final LoginResponse? response,
+      required final String authToken}) = _$LoginSuccessImpl;
 
-  LoginResponse get response;
+  LoginResponse? get response;
+  String get authToken;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ObscureTextImplCopyWith<$Res> {
-  factory _$$ObscureTextImplCopyWith(
-          _$ObscureTextImpl value, $Res Function(_$ObscureTextImpl) then) =
-      __$$ObscureTextImplCopyWithImpl<$Res>;
+abstract class _$$LoginObscureTextImplCopyWith<$Res> {
+  factory _$$LoginObscureTextImplCopyWith(_$LoginObscureTextImpl value,
+          $Res Function(_$LoginObscureTextImpl) then) =
+      __$$LoginObscureTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isObscure});
 }
 
 /// @nodoc
-class __$$ObscureTextImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$ObscureTextImpl>
-    implements _$$ObscureTextImplCopyWith<$Res> {
-  __$$ObscureTextImplCopyWithImpl(
-      _$ObscureTextImpl _value, $Res Function(_$ObscureTextImpl) _then)
+class __$$LoginObscureTextImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginObscureTextImpl>
+    implements _$$LoginObscureTextImplCopyWith<$Res> {
+  __$$LoginObscureTextImplCopyWithImpl(_$LoginObscureTextImpl _value,
+      $Res Function(_$LoginObscureTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1005,8 +1028,8 @@ class __$$ObscureTextImplCopyWithImpl<$Res>
   $Res call({
     Object? isObscure = null,
   }) {
-    return _then(_$ObscureTextImpl(
-      null == isObscure
+    return _then(_$LoginObscureTextImpl(
+      isObscure: null == isObscure
           ? _value.isObscure
           : isObscure // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1016,22 +1039,22 @@ class __$$ObscureTextImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ObscureTextImpl implements _ObscureText {
-  const _$ObscureTextImpl(this.isObscure);
+class _$LoginObscureTextImpl implements LoginObscureText {
+  const _$LoginObscureTextImpl({required this.isObscure});
 
   @override
   final bool isObscure;
 
   @override
   String toString() {
-    return 'LoginState.obscureText(isObscure: $isObscure)';
+    return 'LoginState.isTextObscured(isObscure: $isObscure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ObscureTextImpl &&
+            other is _$LoginObscureTextImpl &&
             (identical(other.isObscure, isObscure) ||
                 other.isObscure == isObscure));
   }
@@ -1042,19 +1065,21 @@ class _$ObscureTextImpl implements _ObscureText {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ObscureTextImplCopyWith<_$ObscureTextImpl> get copyWith =>
-      __$$ObscureTextImplCopyWithImpl<_$ObscureTextImpl>(this, _$identity);
+  _$$LoginObscureTextImplCopyWith<_$LoginObscureTextImpl> get copyWith =>
+      __$$LoginObscureTextImplCopyWithImpl<_$LoginObscureTextImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(LoginResponse response) success,
-    required TResult Function(bool isObscure) obscureText,
+    required TResult Function(String? message) error,
+    required TResult Function(LoginResponse? response, String authToken)
+        success,
+    required TResult Function(bool isObscure) isTextObscured,
   }) {
-    return obscureText(isObscure);
+    return isTextObscured(isObscure);
   }
 
   @override
@@ -1062,11 +1087,11 @@ class _$ObscureTextImpl implements _ObscureText {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(LoginResponse response)? success,
-    TResult? Function(bool isObscure)? obscureText,
+    TResult? Function(String? message)? error,
+    TResult? Function(LoginResponse? response, String authToken)? success,
+    TResult? Function(bool isObscure)? isTextObscured,
   }) {
-    return obscureText?.call(isObscure);
+    return isTextObscured?.call(isObscure);
   }
 
   @override
@@ -1074,13 +1099,13 @@ class _$ObscureTextImpl implements _ObscureText {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(LoginResponse response)? success,
-    TResult Function(bool isObscure)? obscureText,
+    TResult Function(String? message)? error,
+    TResult Function(LoginResponse? response, String authToken)? success,
+    TResult Function(bool isObscure)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (obscureText != null) {
-      return obscureText(isObscure);
+    if (isTextObscured != null) {
+      return isTextObscured(isObscure);
     }
     return orElse();
   }
@@ -1088,49 +1113,50 @@ class _$ObscureTextImpl implements _ObscureText {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Success value) success,
-    required TResult Function(_ObscureText value) obscureText,
+    required TResult Function(LoginInitial value) initial,
+    required TResult Function(LoginLoading value) loading,
+    required TResult Function(LoginError value) error,
+    required TResult Function(LoginSuccess value) success,
+    required TResult Function(LoginObscureText value) isTextObscured,
   }) {
-    return obscureText(this);
+    return isTextObscured(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_ObscureText value)? obscureText,
+    TResult? Function(LoginInitial value)? initial,
+    TResult? Function(LoginLoading value)? loading,
+    TResult? Function(LoginError value)? error,
+    TResult? Function(LoginSuccess value)? success,
+    TResult? Function(LoginObscureText value)? isTextObscured,
   }) {
-    return obscureText?.call(this);
+    return isTextObscured?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Success value)? success,
-    TResult Function(_ObscureText value)? obscureText,
+    TResult Function(LoginInitial value)? initial,
+    TResult Function(LoginLoading value)? loading,
+    TResult Function(LoginError value)? error,
+    TResult Function(LoginSuccess value)? success,
+    TResult Function(LoginObscureText value)? isTextObscured,
     required TResult orElse(),
   }) {
-    if (obscureText != null) {
-      return obscureText(this);
+    if (isTextObscured != null) {
+      return isTextObscured(this);
     }
     return orElse();
   }
 }
 
-abstract class _ObscureText implements LoginState {
-  const factory _ObscureText(final bool isObscure) = _$ObscureTextImpl;
+abstract class LoginObscureText implements LoginState {
+  const factory LoginObscureText({required final bool isObscure}) =
+      _$LoginObscureTextImpl;
 
   bool get isObscure;
   @JsonKey(ignore: true)
-  _$$ObscureTextImplCopyWith<_$ObscureTextImpl> get copyWith =>
+  _$$LoginObscureTextImplCopyWith<_$LoginObscureTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

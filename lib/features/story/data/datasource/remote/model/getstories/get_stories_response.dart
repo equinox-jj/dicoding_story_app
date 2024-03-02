@@ -10,7 +10,7 @@ class GetStoriesResponse with _$GetStoriesResponse {
   factory GetStoriesResponse({
     required bool? error,
     required String? message,
-    required ListStoryResponse? listStory,
+    required List<ListStoryResponse>? listStory,
   }) = _GetStoriesResponse;
 
   factory GetStoriesResponse.fromJson(Map<String, dynamic> json) =>

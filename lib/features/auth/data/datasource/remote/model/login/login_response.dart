@@ -10,7 +10,7 @@ class LoginResponse with _$LoginResponse {
   factory LoginResponse({
     required bool? error,
     required String? message,
-    required LoginResult? result,
+    required LoginResult? loginResult,
   }) = _LoginResponse;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>

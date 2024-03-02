@@ -1,5 +1,3 @@
-// ignore_for_file: await_only_futures
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,27 +12,32 @@ part 'register_state.dart';
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final AuthRepository _authRepository;
 
-  RegisterBloc(this._authRepository) : super(const _Initial()) {
+  RegisterBloc(this._authRepository) : super(const RegisterInitial()) {
     on<RegisterEvent>((event, emit) async {
-      await event.mapOrNull(
-        onRegisterUser: (value) async {
+      switch (event) {
+        case _OnRegisterUser value:
           emit(const RegisterState.loading());
 
           final result = await _authRepository.registerUser(
-            name: value.name,
-            email: value.email,
-            password: value.password,
+            name: value.name ?? '',
+            email: value.email ?? '',
+            password: value.password ?? '',
           );
 
           result.fold(
-            (left) => emit(RegisterState.error(left.toString())),
-            (right) => emit(RegisterState.registerSuccess(right)),
+            (left) {
+              final errorResponse = left.object as RegisterResponse;
+
+              emit(RegisterState.error(message: errorResponse.message));
+            },
+            (right) => emit(RegisterState.success(response: right)),
           );
-        },
-        onObscureText: (value) => emit(RegisterState.obscureText(
-          value.isObscure,
-        )),
-      );
+          break;
+        case _OnRegisterObscureText value:
+          emit(RegisterState.isTextObscured(isObscure: value.isObscure));
+          break;
+        default:
+      }
     });
   }
 }

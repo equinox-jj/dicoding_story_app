@@ -12,7 +12,7 @@ class ListStoryResponse with _$ListStoryResponse {
     required String? photoUrl,
     required DateTime? createdAt,
     required num? lat,
-    required num? long,
+    required num? lon,
   }) = _ListStoryResponse;
 
   factory ListStoryResponse.fromJson(Map<String, dynamic> json) =>

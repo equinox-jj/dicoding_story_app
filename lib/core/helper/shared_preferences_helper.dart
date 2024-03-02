@@ -7,14 +7,14 @@ class SharedPreferencesHelper {
 
   static const _refreshToken = 'refresh_token';
 
-  Future<String> get isTokenSaved async {
+  Future<String> get getToken async {
     final prefs = await preferences;
     return prefs.getString(_refreshToken) ?? '';
   }
 
-  void setToken(String? value) async {
+  void setToken(String value) async {
     final prefs = await preferences;
-    prefs.setString(_refreshToken, value ?? '');
+    prefs.setString(_refreshToken, value);
   }
 
   void removeToken() async {

@@ -26,7 +26,7 @@ mixin _$ListStoryResponse {
   String? get photoUrl => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   num? get lat => throw _privateConstructorUsedError;
-  num? get long => throw _privateConstructorUsedError;
+  num? get lon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $ListStoryResponseCopyWith<$Res> {
       String? photoUrl,
       DateTime? createdAt,
       num? lat,
-      num? long});
+      num? lon});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$ListStoryResponseCopyWithImpl<$Res, $Val extends ListStoryResponse>
     Object? photoUrl = freezed,
     Object? createdAt = freezed,
     Object? lat = freezed,
-    Object? long = freezed,
+    Object? lon = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -96,9 +96,9 @@ class _$ListStoryResponseCopyWithImpl<$Res, $Val extends ListStoryResponse>
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as num?,
-      long: freezed == long
-          ? _value.long
-          : long // ignore: cast_nullable_to_non_nullable
+      lon: freezed == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
               as num?,
     ) as $Val);
   }
@@ -119,7 +119,7 @@ abstract class _$$ListStoryResponseImplCopyWith<$Res>
       String? photoUrl,
       DateTime? createdAt,
       num? lat,
-      num? long});
+      num? lon});
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$ListStoryResponseImplCopyWithImpl<$Res>
     Object? photoUrl = freezed,
     Object? createdAt = freezed,
     Object? lat = freezed,
-    Object? long = freezed,
+    Object? lon = freezed,
   }) {
     return _then(_$ListStoryResponseImpl(
       id: freezed == id
@@ -166,9 +166,9 @@ class __$$ListStoryResponseImplCopyWithImpl<$Res>
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as num?,
-      long: freezed == long
-          ? _value.long
-          : long // ignore: cast_nullable_to_non_nullable
+      lon: freezed == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
               as num?,
     ));
   }
@@ -184,7 +184,7 @@ class _$ListStoryResponseImpl implements _ListStoryResponse {
       required this.photoUrl,
       required this.createdAt,
       required this.lat,
-      required this.long});
+      required this.lon});
 
   factory _$ListStoryResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListStoryResponseImplFromJson(json);
@@ -202,11 +202,11 @@ class _$ListStoryResponseImpl implements _ListStoryResponse {
   @override
   final num? lat;
   @override
-  final num? long;
+  final num? lon;
 
   @override
   String toString() {
-    return 'ListStoryResponse(id: $id, name: $name, description: $description, photoUrl: $photoUrl, createdAt: $createdAt, lat: $lat, long: $long)';
+    return 'ListStoryResponse(id: $id, name: $name, description: $description, photoUrl: $photoUrl, createdAt: $createdAt, lat: $lat, lon: $lon)';
   }
 
   @override
@@ -223,13 +223,13 @@ class _$ListStoryResponseImpl implements _ListStoryResponse {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.long, long) || other.long == long));
+            (identical(other.lon, lon) || other.lon == lon));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, description, photoUrl, createdAt, lat, long);
+      runtimeType, id, name, description, photoUrl, createdAt, lat, lon);
 
   @JsonKey(ignore: true)
   @override
@@ -254,7 +254,7 @@ abstract class _ListStoryResponse implements ListStoryResponse {
       required final String? photoUrl,
       required final DateTime? createdAt,
       required final num? lat,
-      required final num? long}) = _$ListStoryResponseImpl;
+      required final num? lon}) = _$ListStoryResponseImpl;
 
   factory _ListStoryResponse.fromJson(Map<String, dynamic> json) =
       _$ListStoryResponseImpl.fromJson;
@@ -272,7 +272,7 @@ abstract class _ListStoryResponse implements ListStoryResponse {
   @override
   num? get lat;
   @override
-  num? get long;
+  num? get lon;
   @override
   @JsonKey(ignore: true)
   _$$ListStoryResponseImplCopyWith<_$ListStoryResponseImpl> get copyWith =>

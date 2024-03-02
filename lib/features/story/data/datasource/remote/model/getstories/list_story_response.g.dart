@@ -17,7 +17,7 @@ _$ListStoryResponseImpl _$$ListStoryResponseImplFromJson(
           ? null
           : DateTime.parse(json['createdAt'] as String),
       lat: json['lat'] as num?,
-      long: json['long'] as num?,
+      lon: json['lon'] as num?,
     );
 
 Map<String, dynamic> _$$ListStoryResponseImplToJson(
@@ -29,5 +29,5 @@ Map<String, dynamic> _$$ListStoryResponseImplToJson(
       'photoUrl': instance.photoUrl,
       'createdAt': instance.createdAt?.toIso8601String(),
       'lat': instance.lat,
-      'long': instance.long,
+      'lon': instance.lon,
     };

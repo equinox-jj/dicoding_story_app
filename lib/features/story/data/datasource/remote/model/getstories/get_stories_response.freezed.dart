@@ -22,7 +22,7 @@ GetStoriesResponse _$GetStoriesResponseFromJson(Map<String, dynamic> json) {
 mixin _$GetStoriesResponse {
   bool? get error => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  ListStoryResponse? get listStory => throw _privateConstructorUsedError;
+  List<ListStoryResponse>? get listStory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +36,7 @@ abstract class $GetStoriesResponseCopyWith<$Res> {
           GetStoriesResponse value, $Res Function(GetStoriesResponse) then) =
       _$GetStoriesResponseCopyWithImpl<$Res, GetStoriesResponse>;
   @useResult
-  $Res call({bool? error, String? message, ListStoryResponse? listStory});
-
-  $ListStoryResponseCopyWith<$Res>? get listStory;
+  $Res call({bool? error, String? message, List<ListStoryResponse>? listStory});
 }
 
 /// @nodoc
@@ -70,20 +68,8 @@ class _$GetStoriesResponseCopyWithImpl<$Res, $Val extends GetStoriesResponse>
       listStory: freezed == listStory
           ? _value.listStory
           : listStory // ignore: cast_nullable_to_non_nullable
-              as ListStoryResponse?,
+              as List<ListStoryResponse>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ListStoryResponseCopyWith<$Res>? get listStory {
-    if (_value.listStory == null) {
-      return null;
-    }
-
-    return $ListStoryResponseCopyWith<$Res>(_value.listStory!, (value) {
-      return _then(_value.copyWith(listStory: value) as $Val);
-    });
   }
 }
 
@@ -95,10 +81,7 @@ abstract class _$$GetStoriesResponseImplCopyWith<$Res>
       __$$GetStoriesResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? error, String? message, ListStoryResponse? listStory});
-
-  @override
-  $ListStoryResponseCopyWith<$Res>? get listStory;
+  $Res call({bool? error, String? message, List<ListStoryResponse>? listStory});
 }
 
 /// @nodoc
@@ -126,9 +109,9 @@ class __$$GetStoriesResponseImplCopyWithImpl<$Res>
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
       listStory: freezed == listStory
-          ? _value.listStory
+          ? _value._listStory
           : listStory // ignore: cast_nullable_to_non_nullable
-              as ListStoryResponse?,
+              as List<ListStoryResponse>?,
     ));
   }
 }
@@ -137,7 +120,10 @@ class __$$GetStoriesResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetStoriesResponseImpl implements _GetStoriesResponse {
   _$GetStoriesResponseImpl(
-      {required this.error, required this.message, required this.listStory});
+      {required this.error,
+      required this.message,
+      required final List<ListStoryResponse>? listStory})
+      : _listStory = listStory;
 
   factory _$GetStoriesResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetStoriesResponseImplFromJson(json);
@@ -146,8 +132,15 @@ class _$GetStoriesResponseImpl implements _GetStoriesResponse {
   final bool? error;
   @override
   final String? message;
+  final List<ListStoryResponse>? _listStory;
   @override
-  final ListStoryResponse? listStory;
+  List<ListStoryResponse>? get listStory {
+    final value = _listStory;
+    if (value == null) return null;
+    if (_listStory is EqualUnmodifiableListView) return _listStory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -161,13 +154,14 @@ class _$GetStoriesResponseImpl implements _GetStoriesResponse {
             other is _$GetStoriesResponseImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.listStory, listStory) ||
-                other.listStory == listStory));
+            const DeepCollectionEquality()
+                .equals(other._listStory, _listStory));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, error, message, listStory);
+  int get hashCode => Object.hash(runtimeType, error, message,
+      const DeepCollectionEquality().hash(_listStory));
 
   @JsonKey(ignore: true)
   @override
@@ -186,9 +180,10 @@ class _$GetStoriesResponseImpl implements _GetStoriesResponse {
 
 abstract class _GetStoriesResponse implements GetStoriesResponse {
   factory _GetStoriesResponse(
-      {required final bool? error,
-      required final String? message,
-      required final ListStoryResponse? listStory}) = _$GetStoriesResponseImpl;
+          {required final bool? error,
+          required final String? message,
+          required final List<ListStoryResponse>? listStory}) =
+      _$GetStoriesResponseImpl;
 
   factory _GetStoriesResponse.fromJson(Map<String, dynamic> json) =
       _$GetStoriesResponseImpl.fromJson;
@@ -198,7 +193,7 @@ abstract class _GetStoriesResponse implements GetStoriesResponse {
   @override
   String? get message;
   @override
-  ListStoryResponse? get listStory;
+  List<ListStoryResponse>? get listStory;
   @override
   @JsonKey(ignore: true)
   _$$GetStoriesResponseImplCopyWith<_$GetStoriesResponseImpl> get copyWith =>

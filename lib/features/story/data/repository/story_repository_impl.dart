@@ -1,12 +1,14 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
+import 'package:either_dart/either.dart';
+
+import '../../../../core/common/utils/error/failure.dart';
+import '../../domain/repository/story_repository.dart';
 import '../datasource/remote/model/addnewstory/add_new_story_response.dart';
 import '../datasource/remote/model/detailstory/detail_story_response.dart';
 import '../datasource/remote/model/getstories/get_stories_response.dart';
 import '../datasource/remote/story_remote_data_source.dart';
-import '../../domain/repository/story_repository.dart';
-import 'package:dio/dio.dart';
-import 'package:either_dart/either.dart';
 
 class StoryRepositoryImpl extends StoryRepository {
   final StoryRemoteDataSource _storyRemoteDataSource;
@@ -16,7 +18,7 @@ class StoryRepositoryImpl extends StoryRepository {
   }) : _storyRemoteDataSource = storyRemoteDataSource;
 
   @override
-  Future<Either<Exception, AddNewStoryResponse>> addNewStories({
+  Future<Either<Failure, AddNewStoryResponse>> addNewStories({
     required String token,
     required String description,
     required File photo,
@@ -31,13 +33,25 @@ class StoryRepositoryImpl extends StoryRepository {
       );
 
       return Right(result);
-    } on DioException catch (e) {
-      return Left(Exception(e.message));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        if (e.response?.data != null) {
+          final data = AddNewStoryResponse.fromJson(e.response!.data);
+
+          return Left(ServerFailure.fromDioException(object: data));
+        }
+
+        return Left(ServerFailure.fromDioException(dioException: e));
+      } else {
+        return Left(ServerFailure(message: e.toString()));
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 
   @override
-  Future<Either<Exception, GetStoriesResponse>> getAllStories({
+  Future<Either<Failure, GetStoriesResponse>> getAllStories({
     required String token,
     int? page,
     int? size,
@@ -52,13 +66,25 @@ class StoryRepositoryImpl extends StoryRepository {
       );
 
       return Right(result);
-    } on DioException catch (e) {
-      return Left(Exception(e.message));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        if (e.response?.data != null) {
+          final data = GetStoriesResponse.fromJson(e.response!.data);
+
+          return Left(ServerFailure.fromDioException(object: data));
+        }
+
+        return Left(ServerFailure.fromDioException(dioException: e));
+      } else {
+        return Left(ServerFailure(message: e.toString()));
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 
   @override
-  Future<Either<Exception, DetailStoryResponse>> getStoryDetail({
+  Future<Either<Failure, DetailStoryResponse>> getStoryDetail({
     required String token,
     required int storyId,
   }) async {
@@ -69,8 +95,20 @@ class StoryRepositoryImpl extends StoryRepository {
       );
 
       return Right(result);
-    } on DioException catch (e) {
-      return Left(Exception(e.message));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        if (e.response?.data != null) {
+          final data = DetailStoryResponse.fromJson(e.response!.data);
+
+          return Left(ServerFailure.fromDioException(object: data));
+        }
+
+        return Left(ServerFailure.fromDioException(dioException: e));
+      } else {
+        return Left(ServerFailure(message: e.toString()));
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 }
