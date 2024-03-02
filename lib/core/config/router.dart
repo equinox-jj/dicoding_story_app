@@ -42,11 +42,7 @@ final router = GoRouter(
       builder: (context, state) {
         return BlocProvider(
           create: (context) =>
-              sl<ListStoryBloc>()..add(const ListStoryEvent.getListStory(
-                page: 1,
-                size: 20,
-                location: 1,
-              )),
+              sl<ListStoryBloc>()..add(const ListStoryEvent.getListStory()),
           child: const ListStoryPage(),
         );
       },

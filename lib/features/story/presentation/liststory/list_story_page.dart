@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dicoding_story_app/core/common/utils/ext/date_time_ext.dart';
 import 'package:dicoding_story_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'bloc/list_story_bloc.dart';
 
@@ -15,11 +18,21 @@ class ListStoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(l?.titleAppBar ?? ''),
         actions: [
-          IconButton.outlined(
-            onPressed: () {
-              context.read<ListStoryBloc>().add(const ListStoryEvent.logout());
+          PopupMenuButton(
+            onSelected: (value) {
+              switch (value) {
+                case 0:
+                  return context
+                      .read<ListStoryBloc>()
+                      .add(const ListStoryEvent.logout());
+                default:
+              }
             },
-            icon: const Icon(Icons.logout_rounded),
+            itemBuilder: (context) {
+              return [
+                const PopupMenuItem(value: 0, child: Text('Logout')),
+              ];
+            },
           ),
         ],
       ),
@@ -27,13 +40,6 @@ class ListStoryPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           BlocConsumer<ListStoryBloc, ListStoryState>(
-            listenWhen: (previous, current) {
-              if (previous is ListStoryError && current is ListStoryError) {
-                return previous.message != current.message;
-              }
-
-              return previous != current;
-            },
             listener: (context, state) {
               switch (state) {
                 case ListStoryError value:
@@ -45,21 +51,33 @@ class ListStoryPage extends StatelessWidget {
                     ),
                   );
                   break;
+                case ListStoryLogout _:
+                  context.goNamed('initial');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('You has logged out'),
+                      duration: Duration(seconds: 3),
+                      showCloseIcon: true,
+                    ),
+                  );
+                  break;
                 default:
               }
             },
             builder: (context, state) {
               switch (state) {
                 case ListStoryEmpty _:
-                  return const Center(
-                    child: Text('You dont have any story to tell.'),
+                  return Expanded(
+                    child: Center(
+                      child: Text(l?.emptyStoryList ?? ''),
+                    ),
                   );
                 case ListStoryLoading _:
-                  return const Center(
-                    child: CircularProgressIndicator.adaptive(),
+                  return const Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
                   );
-                case ListStoryError _:
-                  return const SizedBox();
                 case ListStorySuccess value:
                   final items = value.response;
 
@@ -69,8 +87,89 @@ class ListStoryPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final item = items?[index];
 
-                        return ListTile(
-                          subtitle: Text(item?.description ?? ''),
+                        return Card.filled(
+                          clipBehavior: Clip.hardEdge,
+                          child: InkWell(
+                            onTap: () {
+                              
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                CachedNetworkImage(
+                                  imageUrl: item?.photoUrl ?? '',
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 200.0,
+                                  fit: BoxFit.fill,
+                                  placeholder: (_, __) => Image.asset(
+                                    'assets/images/placeholder.png',
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 200.0,
+                                    fit: BoxFit.fill,
+                                  ),
+                                  errorWidget: (_, __, ___) => Image.asset(
+                                    'assets/images/error.png',
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 200.0,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8.0,
+                                    vertical: 8.0,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              item?.name ?? '',
+                                              textAlign: TextAlign.start,
+                                              maxLines: 1,
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 17.0,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                          ),
+                                          Flexible(
+                                            flex: 0,
+                                            child: Text(
+                                              item?.createdAt?.formatTime() ?? '',
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        item?.createdAt?.formatDate() ?? '',
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 11.0,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 10.0),
+                                      Text(
+                                        item?.description ?? '',
+                                        style: const TextStyle(
+                                          fontSize: 14.0,
+                                        ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),

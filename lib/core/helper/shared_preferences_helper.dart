@@ -14,11 +14,11 @@ class SharedPreferencesHelper {
 
   void setToken(String value) async {
     final prefs = await preferences;
-    prefs.setString(_refreshToken, value);
+    await prefs.setString(_refreshToken, value);
   }
 
   void removeToken() async {
     final prefs = await preferences;
-    prefs.remove(_refreshToken);
+    await prefs.remove(_refreshToken);
   }
 }

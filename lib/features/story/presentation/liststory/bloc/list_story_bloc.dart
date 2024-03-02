@@ -18,16 +18,16 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
   ListStoryBloc(this._storyRepository) : super(const ListStoryInitial()) {
     on<ListStoryEvent>((event, emit) async {
       switch (event) {
-        case _OnGetListStory value:
+        case _OnGetListStory _:
           final token = await prefs.getToken;
 
           emit(const ListStoryState.loading());
 
           final result = await _storyRepository.getAllStories(
             token: token,
-            location: value.location,
-            page: value.page,
-            size: value.size,
+            location: 0, // 1 With location-0 without location
+            page: 1,
+            size: 20,
           );
 
           result.fold(
@@ -36,11 +36,18 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
 
               emit(ListStoryState.error(message: errorResponse.message));
             },
-            (right) => emit(ListStoryState.success(response: right.listStory)),
+            (right) {
+              if (right.listStory?.isEmpty == true) {
+                emit(const ListStoryState.empty());
+              } else {
+                emit(ListStoryState.success(response: right.listStory));
+              }
+            },
           );
           break;
         case _OnLogoutClicked _:
           prefs.removeToken();
+          emit(const ListStoryState.logout());
           break;
         default:
       }

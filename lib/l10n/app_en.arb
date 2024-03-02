@@ -1,3 +1,4 @@
 {
-    "titleAppBar": "Dicoding Story App"
+    "titleAppBar": "Dicoding Story App",
+    "emptyStoryList": "No stories being posted right now."
 }

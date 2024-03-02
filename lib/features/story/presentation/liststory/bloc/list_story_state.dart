@@ -7,4 +7,5 @@ class ListStoryState with _$ListStoryState {
   const factory ListStoryState.loading() = ListStoryLoading;
   const factory ListStoryState.success({List<ListStoryResponse>? response}) = ListStorySuccess;
   const factory ListStoryState.error({String? message}) = ListStoryError;
+  const factory ListStoryState.logout() = ListStoryLogout;
 }

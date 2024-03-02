@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ListStoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? page, int? size, int? location) getListStory,
+    required TResult Function() getListStory,
     required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? page, int? size, int? location)? getListStory,
+    TResult? Function()? getListStory,
     TResult? Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? page, int? size, int? location)? getListStory,
+    TResult Function()? getListStory,
     TResult Function()? logout,
     required TResult orElse(),
   }) =>
@@ -79,8 +79,6 @@ abstract class _$$OnGetListStoryImplCopyWith<$Res> {
   factory _$$OnGetListStoryImplCopyWith(_$OnGetListStoryImpl value,
           $Res Function(_$OnGetListStoryImpl) then) =
       __$$OnGetListStoryImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int? page, int? size, int? location});
 }
 
 /// @nodoc
@@ -90,96 +88,54 @@ class __$$OnGetListStoryImplCopyWithImpl<$Res>
   __$$OnGetListStoryImplCopyWithImpl(
       _$OnGetListStoryImpl _value, $Res Function(_$OnGetListStoryImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? page = freezed,
-    Object? size = freezed,
-    Object? location = freezed,
-  }) {
-    return _then(_$OnGetListStoryImpl(
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      size: freezed == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int?,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$OnGetListStoryImpl implements _OnGetListStory {
-  const _$OnGetListStoryImpl({this.page, this.size, this.location});
-
-  @override
-  final int? page;
-  @override
-  final int? size;
-  @override
-  final int? location;
+  const _$OnGetListStoryImpl();
 
   @override
   String toString() {
-    return 'ListStoryEvent.getListStory(page: $page, size: $size, location: $location)';
+    return 'ListStoryEvent.getListStory()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OnGetListStoryImpl &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.location, location) ||
-                other.location == location));
+        (other.runtimeType == runtimeType && other is _$OnGetListStoryImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page, size, location);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OnGetListStoryImplCopyWith<_$OnGetListStoryImpl> get copyWith =>
-      __$$OnGetListStoryImplCopyWithImpl<_$OnGetListStoryImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? page, int? size, int? location) getListStory,
+    required TResult Function() getListStory,
     required TResult Function() logout,
   }) {
-    return getListStory(page, size, location);
+    return getListStory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? page, int? size, int? location)? getListStory,
+    TResult? Function()? getListStory,
     TResult? Function()? logout,
   }) {
-    return getListStory?.call(page, size, location);
+    return getListStory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? page, int? size, int? location)? getListStory,
+    TResult Function()? getListStory,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (getListStory != null) {
-      return getListStory(page, size, location);
+      return getListStory();
     }
     return orElse();
   }
@@ -217,17 +173,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
 }
 
 abstract class _OnGetListStory implements ListStoryEvent {
-  const factory _OnGetListStory(
-      {final int? page,
-      final int? size,
-      final int? location}) = _$OnGetListStoryImpl;
-
-  int? get page;
-  int? get size;
-  int? get location;
-  @JsonKey(ignore: true)
-  _$$OnGetListStoryImplCopyWith<_$OnGetListStoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _OnGetListStory() = _$OnGetListStoryImpl;
 }
 
 /// @nodoc
@@ -268,7 +214,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? page, int? size, int? location) getListStory,
+    required TResult Function() getListStory,
     required TResult Function() logout,
   }) {
     return logout();
@@ -277,7 +223,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? page, int? size, int? location)? getListStory,
+    TResult? Function()? getListStory,
     TResult? Function()? logout,
   }) {
     return logout?.call();
@@ -286,7 +232,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? page, int? size, int? location)? getListStory,
+    TResult Function()? getListStory,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
