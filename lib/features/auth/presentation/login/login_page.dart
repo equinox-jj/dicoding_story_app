@@ -1,3 +1,4 @@
+import 'package:dicoding_story_app/core/config/route_name.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 break;
               case LoginSuccess value:
                 prefs.setToken(value.authToken);
-                context.goNamed('liststory');
+                context.goNamed(RouteName.LIST_STORY);
                 break;
             }
           },
@@ -181,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
-                                          context.goNamed('register');
+                                          context.pushNamed(RouteName.REGISTER);
                                         },
                                     ),
                                   ],

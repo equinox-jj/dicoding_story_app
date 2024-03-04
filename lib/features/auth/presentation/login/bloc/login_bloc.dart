@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dicoding_story_app/features/auth/data/datasource/remote/model/login/login_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/helper/shared_preferences_helper.dart';
+import '../../../../../di/injector.dart';
 import '../../../domain/repository/auth_repository.dart';
 
 part 'login_bloc.freezed.dart';
@@ -36,6 +38,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           break;
         case _OnLoginObscureText value:
           emit(LoginState.isTextObscured(isObscure: value.isObscure));
+          break;
+        case _OnAuthenticated _:
+          final prefs = sl<SharedPreferencesHelper>();
+          final token = await prefs.getToken;
+          if (token.isNotEmpty) {
+            emit(const LoginState.isAuthenticated());
+          } else {
+            emit(const LoginState.isUnAuthenticated());
+          }
           break;
         default:
       }

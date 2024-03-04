@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StoryDetailPage extends StatelessWidget {
-  const StoryDetailPage({super.key});
+class AddStoryPage extends StatelessWidget {
+  const AddStoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
