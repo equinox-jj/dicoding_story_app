@@ -7,5 +7,4 @@ class LoginEvent with _$LoginEvent {
     String? password,
   }) = _OnLoginUser;
   const factory LoginEvent.isTextObscured({required bool isObscure}) = _OnLoginObscureText;
-  const factory LoginEvent.isAuthenticated() = _OnAuthenticated;
 }

@@ -20,24 +20,18 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String? email, String? password) loginUser,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? email, String? password)? loginUser,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? email, String? password)? loginUser,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,24 +39,18 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnLoginUser value) loginUser,
     required TResult Function(_OnLoginObscureText value) isTextObscured,
-    required TResult Function(_OnAuthenticated value) isLoggedIn,
-    required TResult Function(_OnUnauthenticated value) isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnLoginUser value)? loginUser,
     TResult? Function(_OnLoginObscureText value)? isTextObscured,
-    TResult? Function(_OnAuthenticated value)? isLoggedIn,
-    TResult? Function(_OnUnauthenticated value)? isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnLoginUser value)? loginUser,
     TResult Function(_OnLoginObscureText value)? isTextObscured,
-    TResult Function(_OnAuthenticated value)? isLoggedIn,
-    TResult Function(_OnUnauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,8 +149,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult when<TResult extends Object?>({
     required TResult Function(String? email, String? password) loginUser,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return loginUser(email, password);
   }
@@ -172,8 +158,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? email, String? password)? loginUser,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return loginUser?.call(email, password);
   }
@@ -183,8 +167,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? email, String? password)? loginUser,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (loginUser != null) {
@@ -198,8 +180,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnLoginUser value) loginUser,
     required TResult Function(_OnLoginObscureText value) isTextObscured,
-    required TResult Function(_OnAuthenticated value) isLoggedIn,
-    required TResult Function(_OnUnauthenticated value) isLoggedOut,
   }) {
     return loginUser(this);
   }
@@ -209,8 +189,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnLoginUser value)? loginUser,
     TResult? Function(_OnLoginObscureText value)? isTextObscured,
-    TResult? Function(_OnAuthenticated value)? isLoggedIn,
-    TResult? Function(_OnUnauthenticated value)? isLoggedOut,
   }) {
     return loginUser?.call(this);
   }
@@ -220,8 +198,6 @@ class _$OnLoginUserImpl implements _OnLoginUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnLoginUser value)? loginUser,
     TResult Function(_OnLoginObscureText value)? isTextObscured,
-    TResult Function(_OnAuthenticated value)? isLoggedIn,
-    TResult Function(_OnUnauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (loginUser != null) {
@@ -310,8 +286,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult when<TResult extends Object?>({
     required TResult Function(String? email, String? password) loginUser,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return isTextObscured(isObscure);
   }
@@ -321,8 +295,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? email, String? password)? loginUser,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return isTextObscured?.call(isObscure);
   }
@@ -332,8 +304,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? email, String? password)? loginUser,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (isTextObscured != null) {
@@ -347,8 +317,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnLoginUser value) loginUser,
     required TResult Function(_OnLoginObscureText value) isTextObscured,
-    required TResult Function(_OnAuthenticated value) isLoggedIn,
-    required TResult Function(_OnUnauthenticated value) isLoggedOut,
   }) {
     return isTextObscured(this);
   }
@@ -358,8 +326,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnLoginUser value)? loginUser,
     TResult? Function(_OnLoginObscureText value)? isTextObscured,
-    TResult? Function(_OnAuthenticated value)? isLoggedIn,
-    TResult? Function(_OnUnauthenticated value)? isLoggedOut,
   }) {
     return isTextObscured?.call(this);
   }
@@ -369,8 +335,6 @@ class _$OnLoginObscureTextImpl implements _OnLoginObscureText {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnLoginUser value)? loginUser,
     TResult Function(_OnLoginObscureText value)? isTextObscured,
-    TResult Function(_OnAuthenticated value)? isLoggedIn,
-    TResult Function(_OnUnauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (isTextObscured != null) {
@@ -391,234 +355,6 @@ abstract class _OnLoginObscureText implements LoginEvent {
 }
 
 /// @nodoc
-abstract class _$$OnAuthenticatedImplCopyWith<$Res> {
-  factory _$$OnAuthenticatedImplCopyWith(_$OnAuthenticatedImpl value,
-          $Res Function(_$OnAuthenticatedImpl) then) =
-      __$$OnAuthenticatedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$OnAuthenticatedImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$OnAuthenticatedImpl>
-    implements _$$OnAuthenticatedImplCopyWith<$Res> {
-  __$$OnAuthenticatedImplCopyWithImpl(
-      _$OnAuthenticatedImpl _value, $Res Function(_$OnAuthenticatedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$OnAuthenticatedImpl implements _OnAuthenticated {
-  const _$OnAuthenticatedImpl();
-
-  @override
-  String toString() {
-    return 'LoginEvent.isLoggedIn()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnAuthenticatedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? email, String? password) loginUser,
-    required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
-  }) {
-    return isLoggedIn();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? email, String? password)? loginUser,
-    TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
-  }) {
-    return isLoggedIn?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? email, String? password)? loginUser,
-    TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedIn != null) {
-      return isLoggedIn();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OnLoginUser value) loginUser,
-    required TResult Function(_OnLoginObscureText value) isTextObscured,
-    required TResult Function(_OnAuthenticated value) isLoggedIn,
-    required TResult Function(_OnUnauthenticated value) isLoggedOut,
-  }) {
-    return isLoggedIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnLoginUser value)? loginUser,
-    TResult? Function(_OnLoginObscureText value)? isTextObscured,
-    TResult? Function(_OnAuthenticated value)? isLoggedIn,
-    TResult? Function(_OnUnauthenticated value)? isLoggedOut,
-  }) {
-    return isLoggedIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnLoginUser value)? loginUser,
-    TResult Function(_OnLoginObscureText value)? isTextObscured,
-    TResult Function(_OnAuthenticated value)? isLoggedIn,
-    TResult Function(_OnUnauthenticated value)? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedIn != null) {
-      return isLoggedIn(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnAuthenticated implements LoginEvent {
-  const factory _OnAuthenticated() = _$OnAuthenticatedImpl;
-}
-
-/// @nodoc
-abstract class _$$OnUnauthenticatedImplCopyWith<$Res> {
-  factory _$$OnUnauthenticatedImplCopyWith(_$OnUnauthenticatedImpl value,
-          $Res Function(_$OnUnauthenticatedImpl) then) =
-      __$$OnUnauthenticatedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$OnUnauthenticatedImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$OnUnauthenticatedImpl>
-    implements _$$OnUnauthenticatedImplCopyWith<$Res> {
-  __$$OnUnauthenticatedImplCopyWithImpl(_$OnUnauthenticatedImpl _value,
-      $Res Function(_$OnUnauthenticatedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$OnUnauthenticatedImpl implements _OnUnauthenticated {
-  const _$OnUnauthenticatedImpl();
-
-  @override
-  String toString() {
-    return 'LoginEvent.isLoggedOut()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnUnauthenticatedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? email, String? password) loginUser,
-    required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
-  }) {
-    return isLoggedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? email, String? password)? loginUser,
-    TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
-  }) {
-    return isLoggedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? email, String? password)? loginUser,
-    TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedOut != null) {
-      return isLoggedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OnLoginUser value) loginUser,
-    required TResult Function(_OnLoginObscureText value) isTextObscured,
-    required TResult Function(_OnAuthenticated value) isLoggedIn,
-    required TResult Function(_OnUnauthenticated value) isLoggedOut,
-  }) {
-    return isLoggedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnLoginUser value)? loginUser,
-    TResult? Function(_OnLoginObscureText value)? isTextObscured,
-    TResult? Function(_OnAuthenticated value)? isLoggedIn,
-    TResult? Function(_OnUnauthenticated value)? isLoggedOut,
-  }) {
-    return isLoggedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnLoginUser value)? loginUser,
-    TResult Function(_OnLoginObscureText value)? isTextObscured,
-    TResult Function(_OnAuthenticated value)? isLoggedIn,
-    TResult Function(_OnUnauthenticated value)? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedOut != null) {
-      return isLoggedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnUnauthenticated implements LoginEvent {
-  const factory _OnUnauthenticated() = _$OnUnauthenticatedImpl;
-}
-
-/// @nodoc
 mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -628,8 +364,6 @@ mixin _$LoginState {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -639,8 +373,6 @@ mixin _$LoginState {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -650,8 +382,6 @@ mixin _$LoginState {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -662,8 +392,6 @@ mixin _$LoginState {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -673,8 +401,6 @@ mixin _$LoginState {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -684,8 +410,6 @@ mixin _$LoginState {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -753,8 +477,6 @@ class _$LoginInitialImpl implements LoginInitial {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return initial();
   }
@@ -767,8 +489,6 @@ class _$LoginInitialImpl implements LoginInitial {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return initial?.call();
   }
@@ -781,8 +501,6 @@ class _$LoginInitialImpl implements LoginInitial {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -799,8 +517,6 @@ class _$LoginInitialImpl implements LoginInitial {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) {
     return initial(this);
   }
@@ -813,8 +529,6 @@ class _$LoginInitialImpl implements LoginInitial {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) {
     return initial?.call(this);
   }
@@ -827,8 +541,6 @@ class _$LoginInitialImpl implements LoginInitial {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -886,8 +598,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return loading();
   }
@@ -900,8 +610,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return loading?.call();
   }
@@ -914,8 +622,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -932,8 +638,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) {
     return loading(this);
   }
@@ -946,8 +650,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) {
     return loading?.call(this);
   }
@@ -960,8 +662,6 @@ class _$LoginLoadingImpl implements LoginLoading {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1045,8 +745,6 @@ class _$LoginErrorImpl implements LoginError {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return error(message);
   }
@@ -1059,8 +757,6 @@ class _$LoginErrorImpl implements LoginError {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return error?.call(message);
   }
@@ -1073,8 +769,6 @@ class _$LoginErrorImpl implements LoginError {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1091,8 +785,6 @@ class _$LoginErrorImpl implements LoginError {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) {
     return error(this);
   }
@@ -1105,8 +797,6 @@ class _$LoginErrorImpl implements LoginError {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) {
     return error?.call(this);
   }
@@ -1119,8 +809,6 @@ class _$LoginErrorImpl implements LoginError {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1233,8 +921,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return success(response, authToken);
   }
@@ -1247,8 +933,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return success?.call(response, authToken);
   }
@@ -1261,8 +945,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1279,8 +961,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) {
     return success(this);
   }
@@ -1293,8 +973,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) {
     return success?.call(this);
   }
@@ -1307,8 +985,6 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1402,8 +1078,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     required TResult Function(LoginResponse? response, String authToken)
         success,
     required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
   }) {
     return isTextObscured(isObscure);
   }
@@ -1416,8 +1090,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     TResult? Function(String? message)? error,
     TResult? Function(LoginResponse? response, String authToken)? success,
     TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
   }) {
     return isTextObscured?.call(isObscure);
   }
@@ -1430,8 +1102,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     TResult Function(String? message)? error,
     TResult Function(LoginResponse? response, String authToken)? success,
     TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
     required TResult orElse(),
   }) {
     if (isTextObscured != null) {
@@ -1448,8 +1118,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     required TResult Function(LoginError value) error,
     required TResult Function(LoginSuccess value) success,
     required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
   }) {
     return isTextObscured(this);
   }
@@ -1462,8 +1130,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     TResult? Function(LoginError value)? error,
     TResult? Function(LoginSuccess value)? success,
     TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
   }) {
     return isTextObscured?.call(this);
   }
@@ -1476,8 +1142,6 @@ class _$LoginObscureTextImpl implements LoginObscureText {
     TResult Function(LoginError value)? error,
     TResult Function(LoginSuccess value)? success,
     TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
     required TResult orElse(),
   }) {
     if (isTextObscured != null) {
@@ -1495,270 +1159,4 @@ abstract class LoginObscureText implements LoginState {
   @JsonKey(ignore: true)
   _$$LoginObscureTextImplCopyWith<_$LoginObscureTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AuthenticatedImplCopyWith<$Res> {
-  factory _$$AuthenticatedImplCopyWith(
-          _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
-      __$$AuthenticatedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$AuthenticatedImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$AuthenticatedImpl>
-    implements _$$AuthenticatedImplCopyWith<$Res> {
-  __$$AuthenticatedImplCopyWithImpl(
-      _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$AuthenticatedImpl implements Authenticated {
-  const _$AuthenticatedImpl();
-
-  @override
-  String toString() {
-    return 'LoginState.isLoggedIn()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthenticatedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(String? message) error,
-    required TResult Function(LoginResponse? response, String authToken)
-        success,
-    required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
-  }) {
-    return isLoggedIn();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(String? message)? error,
-    TResult? Function(LoginResponse? response, String authToken)? success,
-    TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
-  }) {
-    return isLoggedIn?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String? message)? error,
-    TResult Function(LoginResponse? response, String authToken)? success,
-    TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedIn != null) {
-      return isLoggedIn();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoginInitial value) initial,
-    required TResult Function(LoginLoading value) loading,
-    required TResult Function(LoginError value) error,
-    required TResult Function(LoginSuccess value) success,
-    required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
-  }) {
-    return isLoggedIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginInitial value)? initial,
-    TResult? Function(LoginLoading value)? loading,
-    TResult? Function(LoginError value)? error,
-    TResult? Function(LoginSuccess value)? success,
-    TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
-  }) {
-    return isLoggedIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginInitial value)? initial,
-    TResult Function(LoginLoading value)? loading,
-    TResult Function(LoginError value)? error,
-    TResult Function(LoginSuccess value)? success,
-    TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedIn != null) {
-      return isLoggedIn(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Authenticated implements LoginState {
-  const factory Authenticated() = _$AuthenticatedImpl;
-}
-
-/// @nodoc
-abstract class _$$UnauthenticatedImplCopyWith<$Res> {
-  factory _$$UnauthenticatedImplCopyWith(_$UnauthenticatedImpl value,
-          $Res Function(_$UnauthenticatedImpl) then) =
-      __$$UnauthenticatedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$UnauthenticatedImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
-    implements _$$UnauthenticatedImplCopyWith<$Res> {
-  __$$UnauthenticatedImplCopyWithImpl(
-      _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$UnauthenticatedImpl implements Unauthenticated {
-  const _$UnauthenticatedImpl();
-
-  @override
-  String toString() {
-    return 'LoginState.isLoggedOut()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnauthenticatedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(String? message) error,
-    required TResult Function(LoginResponse? response, String authToken)
-        success,
-    required TResult Function(bool isObscure) isTextObscured,
-    required TResult Function() isLoggedIn,
-    required TResult Function() isLoggedOut,
-  }) {
-    return isLoggedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(String? message)? error,
-    TResult? Function(LoginResponse? response, String authToken)? success,
-    TResult? Function(bool isObscure)? isTextObscured,
-    TResult? Function()? isLoggedIn,
-    TResult? Function()? isLoggedOut,
-  }) {
-    return isLoggedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String? message)? error,
-    TResult Function(LoginResponse? response, String authToken)? success,
-    TResult Function(bool isObscure)? isTextObscured,
-    TResult Function()? isLoggedIn,
-    TResult Function()? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedOut != null) {
-      return isLoggedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoginInitial value) initial,
-    required TResult Function(LoginLoading value) loading,
-    required TResult Function(LoginError value) error,
-    required TResult Function(LoginSuccess value) success,
-    required TResult Function(LoginObscureText value) isTextObscured,
-    required TResult Function(Authenticated value) isLoggedIn,
-    required TResult Function(Unauthenticated value) isLoggedOut,
-  }) {
-    return isLoggedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginInitial value)? initial,
-    TResult? Function(LoginLoading value)? loading,
-    TResult? Function(LoginError value)? error,
-    TResult? Function(LoginSuccess value)? success,
-    TResult? Function(LoginObscureText value)? isTextObscured,
-    TResult? Function(Authenticated value)? isLoggedIn,
-    TResult? Function(Unauthenticated value)? isLoggedOut,
-  }) {
-    return isLoggedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginInitial value)? initial,
-    TResult Function(LoginLoading value)? loading,
-    TResult Function(LoginError value)? error,
-    TResult Function(LoginSuccess value)? success,
-    TResult Function(LoginObscureText value)? isTextObscured,
-    TResult Function(Authenticated value)? isLoggedIn,
-    TResult Function(Unauthenticated value)? isLoggedOut,
-    required TResult orElse(),
-  }) {
-    if (isLoggedOut != null) {
-      return isLoggedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Unauthenticated implements LoginState {
-  const factory Unauthenticated() = _$UnauthenticatedImpl;
 }

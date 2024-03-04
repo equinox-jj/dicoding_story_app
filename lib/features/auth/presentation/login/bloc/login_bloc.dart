@@ -39,15 +39,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         case _OnLoginObscureText value:
           emit(LoginState.isTextObscured(isObscure: value.isObscure));
           break;
-        case _OnAuthenticated _:
-          final prefs = sl<SharedPreferencesHelper>();
-          final token = await prefs.getToken;
-          if (token.isNotEmpty) {
-            emit(const LoginState.isAuthenticated());
-          } else {
-            emit(const LoginState.isUnAuthenticated());
-          }
-          break;
         default:
       }
     });
