@@ -6,13 +6,15 @@ import 'model/login/login_response.dart';
 import 'model/register/register_response.dart';
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
+  final dio = DioHelper();
+  
   @override
   Future<RegisterResponse> registerUser({
     required String name,
     required String email,
     required String password,
   }) async {
-    final result = await DioHelper.post(Constants.REGISTER_EP, data: {
+    final result = await dio.post(Constants.REGISTER_EP, data: {
       'name': name,
       'email': email,
       'password': password,
@@ -30,7 +32,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     required String email,
     required String password,
   }) async {
-    final result = await DioHelper.post(Constants.LOGIN_EP, data: {
+    final result = await dio.post(Constants.LOGIN_EP, data: {
       'email': email,
       'password': password,
     });

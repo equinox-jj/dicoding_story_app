@@ -4,7 +4,6 @@ import 'package:dicoding_story_app/core/config/route_name.dart';
 import 'package:dicoding_story_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
 
 import 'bloc/list_story_bloc.dart';
@@ -17,20 +16,11 @@ class ListStoryPage extends StatelessWidget {
     final l = AppLocalizations.of(context);
 
     return Scaffold(
-      floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.menu_close,
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.note_add_rounded),
-            label: 'Add Story',
-            onTap: () {},
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.sort_rounded),
-            label: 'Sort By',
-            onTap: () {},
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.small(
+        onPressed: () async {
+          context.pushNamed(RouteName.ADD_STORY);
+        },
+        child: const Icon(Icons.add_rounded),
       ),
       appBar: AppBar(
         title: Text(l?.titleAppBar ?? ''),
@@ -55,58 +45,137 @@ class ListStoryPage extends StatelessWidget {
       ),
       body: RefreshIndicator.adaptive(
         onRefresh: () async {},
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            BlocConsumer<ListStoryBloc, ListStoryState>(
-              listener: (context, state) {
-                switch (state) {
-                  case ListStoryError value:
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(value.message ?? ''),
-                        duration: const Duration(seconds: 3),
-                        showCloseIcon: true,
-                      ),
-                    );
-                    break;
-                  case ListStoryLogout _:
-                    context.goNamed(RouteName.LOGIN);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('You has logged out'),
-                        duration: Duration(seconds: 3),
-                        showCloseIcon: true,
-                      ),
-                    );
-                    break;
-                  default:
-                }
-              },
-              builder: (context, state) {
-                switch (state) {
-                  case ListStoryEmpty _:
-                    return Expanded(
-                      child: Center(
-                        child: Text(l?.emptyStoryList ?? ''),
-                      ),
-                    );
-                  case ListStoryLoading _:
-                    return const Expanded(
-                      child: Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      ),
-                    );
-                  case ListStorySuccess value:
-                    final items = value.response;
+        child: BlocConsumer<ListStoryBloc, ListStoryState>(
+          listener: (context, state) {
+            switch (state) {
+              case ListStoryError value:
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(value.message ?? ''),
+                    duration: const Duration(seconds: 3),
+                    showCloseIcon: true,
+                  ),
+                );
+                break;
+              case ListStoryLogout _:
+                context.goNamed(RouteName.LOGIN);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('You has logged out'),
+                    duration: Duration(seconds: 3),
+                    showCloseIcon: true,
+                  ),
+                );
+                break;
+              default:
+            }
+          },
+          builder: (context, state) {
+            switch (state) {
+              case ListStoryEmpty _:
+                return Center(
+                  child: Text(l?.emptyStoryList ?? ''),
+                );
+              case ListStoryLoading _:
+                return const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                );
+              case ListStorySuccess value:
+                final items = value.response;
 
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: items?.length,
-                        itemBuilder: (context, index) {
-                          final item = items?[index];
+                return CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      floating: true,
+                      snap: true,
+                      flexibleSpace: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Sorting item by datetime',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(width: 8.0),
+                          Center(
+                            child: IconButton.filled(
+                              onPressed: () async {
+                                await showAdaptiveDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog.adaptive(
+                                      title: const Text('Sorting by :'),
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        children: [
+                                          RadioListTile.adaptive(
+                                            value: '0',
+                                            groupValue: 'sortby',
+                                            onChanged: (value) {
+                                              context.read<ListStoryBloc>().add(
+                                                    ListStoryEvent.sortByDateTime(
+                                                      int.parse(value ?? ''),
+                                                    ),
+                                                  );
+                                            },
+                                            title: const Text(
+                                              'Datetime Asc',
+                                              style: TextStyle(fontWeight: FontWeight.w500),
+                                            ),
+                                            secondary: const Icon(
+                                                Icons.arrow_upward_rounded),
+                                            dense: true,
+                                            visualDensity: VisualDensity.compact,
+                                          ),
+                                          RadioListTile.adaptive(
+                                            value: '1',
+                                            groupValue: 'sortby',
+                                            onChanged: (value) {
+                                              context.read<ListStoryBloc>().add(
+                                                    ListStoryEvent.sortByDateTime(int.parse(value ?? '')),
+                                                  );
+                                            },
+                                            title: const Text(
+                                              'Datetime Desc',
+                                              style: TextStyle(fontWeight: FontWeight.w500),
+                                            ),
+                                            secondary: const Icon(
+                                              Icons.arrow_downward_rounded,
+                                            ),
+                                            dense: true,
+                                            visualDensity: VisualDensity.compact,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              icon: const Icon(Icons.sort_rounded),
+                              style: ButtonStyle(
+                                shape: MaterialStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    )
+                                ),
+                                visualDensity: VisualDensity.compact,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SliverList.builder(
+                      itemCount: items?.length,
+                      itemBuilder: (context, index) {
+                        final item = items?[index];
 
-                          return Card.filled(
+                        return Hero(
+                          tag: item?.photoUrl ?? '',
+                          child: Card.filled(
                             clipBehavior: Clip.hardEdge,
                             child: InkWell(
                               onTap: () async {
@@ -142,12 +211,10 @@ class ListStoryPage extends StatelessWidget {
                                       vertical: 8.0,
                                     ),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
+                                      crossAxisAlignment: CrossAxisAlignment.stretch,
                                       children: [
                                         Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Expanded(
                                               child: Text(
@@ -157,16 +224,14 @@ class ListStoryPage extends StatelessWidget {
                                                 style: const TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 17.0,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
+                                                  overflow: TextOverflow.ellipsis,
                                                 ),
                                               ),
                                             ),
                                             Flexible(
                                               flex: 0,
                                               child: Text(
-                                                item?.createdAt?.formatTime() ??
-                                                    '',
+                                                item?.createdAt?.formatTime() ?? '',
                                                 style: const TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 13.0,
@@ -185,8 +250,10 @@ class ListStoryPage extends StatelessWidget {
                                         const SizedBox(height: 10.0),
                                         Text(
                                           item?.description ?? '',
+                                          maxLines: 3,
                                           style: const TextStyle(
                                             fontSize: 14.0,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
                                       ],
@@ -195,16 +262,16 @@ class ListStoryPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                          );
-                        },
-                      ),
-                    );
-                  default:
-                    return const SizedBox.shrink();
-                }
-              },
-            )
-          ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                );
+              default:
+                return const SizedBox.shrink();
+            }
+          },
         ),
       ),
     );

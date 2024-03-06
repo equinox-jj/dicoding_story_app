@@ -1,6 +1,7 @@
 import 'package:dicoding_story_app/core/config/route_name.dart';
 import 'package:dicoding_story_app/features/auth/presentation/register/bloc/register_bloc.dart';
-import 'package:dicoding_story_app/features/story/presentation/liststory/bloc/list_story_bloc.dart';
+import 'package:dicoding_story_app/features/story/presentation/addstory/add_story_page.dart';
+import 'package:dicoding_story_app/features/story/presentation/addstory/bloc/add_story_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -52,12 +53,8 @@ GoRouter router(String? initialLocation) {
         name: RouteName.LIST_STORY,
         path: RouterPath.LIST_STORY,
         pageBuilder: (context, state) {
-          return MaterialPage(
-            child: BlocProvider(
-              create: (context) =>
-                  sl<ListStoryBloc>()..add(const ListStoryEvent.getListStory()),
-              child: const ListStoryPage(),
-            ),
+          return const MaterialPage(
+            child: ListStoryPage(),
           );
         },
         routes: [
@@ -67,7 +64,21 @@ GoRouter router(String? initialLocation) {
             pageBuilder: (context, state) {
               final data = state.extra as ListStoryResponse;
 
-              return MaterialPage(child: StoryDetailPage(data: data));
+              return MaterialPage(
+                child: StoryDetailPage(data: data),
+              );
+            },
+          ),
+          GoRoute(
+            name: RouteName.ADD_STORY,
+            path: RouterPath.ADD_STORY,
+            pageBuilder: (context, state) {
+              return MaterialPage(
+                child: BlocProvider(
+                  create: (context) => sl<AddStoryBloc>(),
+                  child: const AddStoryPage(),
+                ),
+              );
             },
           ),
         ],
@@ -78,71 +89,3 @@ GoRouter router(String? initialLocation) {
     },
   );
 }
-
-// final router = GoRouter(
-//   debugLogDiagnostics: true,
-//   navigatorKey: _navigatorState,
-//   initialLocation: RouterPath.LOGIN,
-//   routes: [
-//     GoRoute(
-//       name: RouteName.LOGIN,
-//       path: RouterPath.LOGIN,
-//       pageBuilder: (context, state) {
-//         return MaterialPage(
-//           child: BlocProvider(
-//             create: (context) => sl<LoginBloc>(),
-//             child: const LoginPage(),
-//           ),
-//         );
-//       },
-//       routes: [
-//         GoRoute(
-//           name: RouteName.REGISTER,
-//           path: RouterPath.REGISTER,
-//           pageBuilder: (context, state) {
-//             return MaterialPage(
-//               child: BlocProvider(
-//                 create: (context) => sl<RegisterBloc>(),
-//                 child: const RegisterPage(),
-//               ),
-//             );
-//           },
-//         ),
-//       ],
-//     ),
-//     GoRoute(
-//       name: RouteName.INITIAL,
-//       path: RouterPath.INITIAL,
-//       pageBuilder: (context, state) {
-//         return MaterialPage(
-//           child: BlocProvider(
-//             create: (context) => sl<ListStoryBloc>()..add(const ListStoryEvent.getListStory()),
-//             child: const ListStoryPage(),
-//           ),
-//         );
-//       },
-//       routes: [
-//         GoRoute(
-//           name: RouteName.DETAIL_STORY,
-//           path: RouterPath.DETAIL_STORY,
-//           pageBuilder: (context, state) {
-//             final data = state.extra as ListStoryResponse;
-
-//             return MaterialPage(child: StoryDetailPage(data: data));
-//           },
-//         ),
-//       ],
-//     ),
-//   ],
-//   redirect: (context, state) async {
-//     final prefs = sl<SharedPreferencesHelper>();
-//     final token = await prefs.getToken;
-//     final isLoggedIn = token.isNotEmpty;
-//     // final isLoggingIn = state;
-
-//     return isLoggedIn ? null : state.namedLocation(RouteName.LOGIN);
-//   },
-//   errorBuilder: (context, state) {
-//     return const ErrorPage();
-//   },
-// );

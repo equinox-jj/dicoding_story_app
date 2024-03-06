@@ -6,6 +6,7 @@ abstract class RouteName {
   static const String REGISTER = 'register';
   static const String LIST_STORY = 'list-story';
   static const String DETAIL_STORY = 'detail-story';
+  static const String ADD_STORY = 'add-story';
 }
 
 abstract class RouterPath {
@@ -14,4 +15,5 @@ abstract class RouterPath {
   static const String REGISTER = 'register';
   static const String LIST_STORY = '/list-story';
   static const String DETAIL_STORY = 'detail-story';
+  static const String ADD_STORY = 'add-story';
 }

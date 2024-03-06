@@ -20,18 +20,21 @@ mixin _$ListStoryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getListStory,
     required TResult Function() logout,
+    required TResult Function(int value) sortByDateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListStory,
     TResult? Function()? logout,
+    TResult? Function(int value)? sortByDateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListStory,
     TResult Function()? logout,
+    TResult Function(int value)? sortByDateTime,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ListStoryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
     required TResult Function(_OnLogoutClicked value) logout,
+    required TResult Function(_OnSortByDateTimeClicked value) sortByDateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
     TResult? Function(_OnLogoutClicked value)? logout,
+    TResult? Function(_OnSortByDateTimeClicked value)? sortByDateTime,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
     TResult Function(_OnLogoutClicked value)? logout,
+    TResult Function(_OnSortByDateTimeClicked value)? sortByDateTime,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult when<TResult extends Object?>({
     required TResult Function() getListStory,
     required TResult Function() logout,
+    required TResult Function(int value) sortByDateTime,
   }) {
     return getListStory();
   }
@@ -123,6 +130,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListStory,
     TResult? Function()? logout,
+    TResult? Function(int value)? sortByDateTime,
   }) {
     return getListStory?.call();
   }
@@ -132,6 +140,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListStory,
     TResult Function()? logout,
+    TResult Function(int value)? sortByDateTime,
     required TResult orElse(),
   }) {
     if (getListStory != null) {
@@ -145,6 +154,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
     required TResult Function(_OnLogoutClicked value) logout,
+    required TResult Function(_OnSortByDateTimeClicked value) sortByDateTime,
   }) {
     return getListStory(this);
   }
@@ -154,6 +164,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
     TResult? Function(_OnLogoutClicked value)? logout,
+    TResult? Function(_OnSortByDateTimeClicked value)? sortByDateTime,
   }) {
     return getListStory?.call(this);
   }
@@ -163,6 +174,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
     TResult Function(_OnLogoutClicked value)? logout,
+    TResult Function(_OnSortByDateTimeClicked value)? sortByDateTime,
     required TResult orElse(),
   }) {
     if (getListStory != null) {
@@ -216,6 +228,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult when<TResult extends Object?>({
     required TResult Function() getListStory,
     required TResult Function() logout,
+    required TResult Function(int value) sortByDateTime,
   }) {
     return logout();
   }
@@ -225,6 +238,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListStory,
     TResult? Function()? logout,
+    TResult? Function(int value)? sortByDateTime,
   }) {
     return logout?.call();
   }
@@ -234,6 +248,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListStory,
     TResult Function()? logout,
+    TResult Function(int value)? sortByDateTime,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -247,6 +262,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
     required TResult Function(_OnLogoutClicked value) logout,
+    required TResult Function(_OnSortByDateTimeClicked value) sortByDateTime,
   }) {
     return logout(this);
   }
@@ -256,6 +272,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
     TResult? Function(_OnLogoutClicked value)? logout,
+    TResult? Function(_OnSortByDateTimeClicked value)? sortByDateTime,
   }) {
     return logout?.call(this);
   }
@@ -265,6 +282,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
     TResult Function(_OnLogoutClicked value)? logout,
+    TResult Function(_OnSortByDateTimeClicked value)? sortByDateTime,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -276,6 +294,149 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
 
 abstract class _OnLogoutClicked implements ListStoryEvent {
   const factory _OnLogoutClicked() = _$OnLogoutClickedImpl;
+}
+
+/// @nodoc
+abstract class _$$OnSortByDateTimeClickedImplCopyWith<$Res> {
+  factory _$$OnSortByDateTimeClickedImplCopyWith(
+          _$OnSortByDateTimeClickedImpl value,
+          $Res Function(_$OnSortByDateTimeClickedImpl) then) =
+      __$$OnSortByDateTimeClickedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$OnSortByDateTimeClickedImplCopyWithImpl<$Res>
+    extends _$ListStoryEventCopyWithImpl<$Res, _$OnSortByDateTimeClickedImpl>
+    implements _$$OnSortByDateTimeClickedImplCopyWith<$Res> {
+  __$$OnSortByDateTimeClickedImplCopyWithImpl(
+      _$OnSortByDateTimeClickedImpl _value,
+      $Res Function(_$OnSortByDateTimeClickedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$OnSortByDateTimeClickedImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnSortByDateTimeClickedImpl implements _OnSortByDateTimeClicked {
+  const _$OnSortByDateTimeClickedImpl(this.value);
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'ListStoryEvent.sortByDateTime(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnSortByDateTimeClickedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnSortByDateTimeClickedImplCopyWith<_$OnSortByDateTimeClickedImpl>
+      get copyWith => __$$OnSortByDateTimeClickedImplCopyWithImpl<
+          _$OnSortByDateTimeClickedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getListStory,
+    required TResult Function() logout,
+    required TResult Function(int value) sortByDateTime,
+  }) {
+    return sortByDateTime(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getListStory,
+    TResult? Function()? logout,
+    TResult? Function(int value)? sortByDateTime,
+  }) {
+    return sortByDateTime?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getListStory,
+    TResult Function()? logout,
+    TResult Function(int value)? sortByDateTime,
+    required TResult orElse(),
+  }) {
+    if (sortByDateTime != null) {
+      return sortByDateTime(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnGetListStory value) getListStory,
+    required TResult Function(_OnLogoutClicked value) logout,
+    required TResult Function(_OnSortByDateTimeClicked value) sortByDateTime,
+  }) {
+    return sortByDateTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnGetListStory value)? getListStory,
+    TResult? Function(_OnLogoutClicked value)? logout,
+    TResult? Function(_OnSortByDateTimeClicked value)? sortByDateTime,
+  }) {
+    return sortByDateTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnGetListStory value)? getListStory,
+    TResult Function(_OnLogoutClicked value)? logout,
+    TResult Function(_OnSortByDateTimeClicked value)? sortByDateTime,
+    required TResult orElse(),
+  }) {
+    if (sortByDateTime != null) {
+      return sortByDateTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnSortByDateTimeClicked implements ListStoryEvent {
+  const factory _OnSortByDateTimeClicked(final int value) =
+      _$OnSortByDateTimeClickedImpl;
+
+  int get value;
+  @JsonKey(ignore: true)
+  _$$OnSortByDateTimeClickedImplCopyWith<_$OnSortByDateTimeClickedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

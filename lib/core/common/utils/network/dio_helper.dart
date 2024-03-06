@@ -4,9 +4,17 @@ import '../../constants/constants.dart';
 import 'dio_interceptor.dart';
 
 class DioHelper {
-  static Dio _dio = Dio();
+  static DioHelper? _instance;
 
-  static void init() {
+  DioHelper._internal() {
+    _instance = this;
+  }
+
+  factory DioHelper() => _instance ?? DioHelper._internal();
+
+  Dio _dio = Dio();
+
+  void init() {
     _dio = Dio(
       BaseOptions(
         baseUrl: Constants.BASE_URL,
@@ -17,7 +25,7 @@ class DioHelper {
     )..interceptors.add(DioInterceptorWrapper());
   }
 
-  static Future<Response<T>> get<T>(
+  Future<Response<T>> get<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -41,7 +49,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response<T>> post<T>(
+  Future<Response<T>> post<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -67,7 +75,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response<T>> put<T>(
+  Future<Response<T>> put<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -93,7 +101,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response<T>> patch<T>(
+  Future<Response<T>> patch<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -119,7 +127,7 @@ class DioHelper {
     );
   }
 
-  static Future<Response<T>> delete<T>(
+  Future<Response<T>> delete<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,

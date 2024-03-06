@@ -37,10 +37,12 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
               emit(ListStoryState.error(message: errorResponse.message));
             },
             (right) {
-              if (right.listStory?.isEmpty == true) {
+              final listStory = right.listStory;
+
+              if (listStory?.isEmpty == true) {
                 emit(const ListStoryState.empty());
               } else {
-                emit(ListStoryState.success(response: right.listStory));
+                emit(ListStoryState.success(response: listStory));
               }
             },
           );
@@ -48,6 +50,46 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
         case _OnLogoutClicked _:
           prefs.removeToken();
           emit(const ListStoryState.logout());
+          break;
+        case _OnSortByDateTimeClicked value:
+          final token = await prefs.getToken;
+
+          emit(const ListStoryState.loading());
+
+          final result = await _storyRepository.getAllStories(
+            token: token,
+            location: 0,
+            page: 1,
+            size: 20,
+          );
+
+          result.fold(
+            (left) {
+              final errorResponse = left.object as GetStoriesResponse;
+
+              emit(ListStoryState.error(message: errorResponse.message));
+            },
+            (right) {
+              final listStory = right.listStory;
+              final sortingListDesc = listStory?.map((e) => e).toList()?..sort((a, b) => b.createdAt?.compareTo(a.createdAt!) ?? 0);
+              final sortingListAsc = listStory?.map((e) => e).toList()?..sort((a, b) => a.createdAt?.compareTo(b.createdAt!) ?? 0);
+
+              if (value.value == 0) {
+                if (sortingListAsc?.isEmpty == true) {
+                  emit(const ListStoryState.empty());
+                } else {
+                  emit(ListStoryState.success(response: sortingListAsc));
+                }
+              } else if (value.value == 1) {
+                if (sortingListDesc?.isEmpty == true) {
+                  emit(const ListStoryState.empty());
+                } else {
+                  emit(ListStoryState.success(response: sortingListDesc));
+                }
+              }
+            },
+          );
+
           break;
         default:
       }

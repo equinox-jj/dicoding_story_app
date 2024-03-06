@@ -25,7 +25,6 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromDioException({
     DioException? dioException,
-    String? jsonMessage,
     Object? object,
   }) {
     switch (dioException?.type) {

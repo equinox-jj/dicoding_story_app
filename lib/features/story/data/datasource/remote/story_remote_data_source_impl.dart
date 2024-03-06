@@ -10,6 +10,8 @@ import 'model/getstories/get_stories_response.dart';
 import 'story_remote_data_source.dart';
 
 class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
+  final dio = DioHelper();
+
   @override
   Future<AddNewStoryResponse> addNewStories({
     required String token,
@@ -19,15 +21,19 @@ class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
     num? lon,
   }) async {
     final fileName = photo.path.split('/').last;
-    final result = await DioHelper.post(
+    final formData = FormData.fromMap({
+      'description': description,
+      'lat': lat,
+      'lon': lon,
+      'photo': MultipartFile.fromFile(
+        photo.path,
+        filename: fileName,
+      ),
+    });
+    final result = await dio.post(
       Constants.STORIES_EP,
       token: token,
-      data: {
-        'description': description,
-        'photo': MultipartFile.fromFile(photo.path, filename: fileName),
-        'lat': lat,
-        'lon': lon,
-      },
+      data: formData,
       options: Options(headers: {
         'Content-Type': 'multipart/form-data',
       }),
@@ -47,7 +53,7 @@ class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
     int? size,
     int? location,
   }) async {
-    final result = await DioHelper.get(
+    final result = await dio.get(
       Constants.STORIES_EP,
       token: token,
       queryParameters: {
@@ -69,7 +75,7 @@ class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
     required String token,
     required int storyId,
   }) async {
-    final result = await DioHelper.get(
+    final result = await dio.get(
       Constants.DETAIL_STORIES_EP,
       token: token,
     );
