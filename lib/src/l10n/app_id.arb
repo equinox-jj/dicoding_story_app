@@ -1,0 +1,13 @@
+{
+    "titleAppBar": "Dicoding Story App",
+    "emptyStoryList": "Tidak ada cerita yang diposting saat ini",
+    "welcome": "Selamat datang",
+    "dontHaveAccount": "Tidak punya akun ? ",
+    "signUp": "Daftar",
+    "login": "Masuk",
+    "hintInputEmail": "Masukkan email address",
+    "hintInputPassword": "Masukkan password",
+    "hintInputUsername": "Masukan username",
+    "alreadyHaveAccount": "Sudah punya akun ? ",
+    "createAccount": "Buat Akun"
+}
