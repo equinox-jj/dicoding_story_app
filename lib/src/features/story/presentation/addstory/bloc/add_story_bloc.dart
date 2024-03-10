@@ -23,34 +23,39 @@ class AddStoryBloc extends Bloc<AddStoryEvent, AddStoryState> {
       await event.maybeMap(
         orElse: () => null,
         pickImageGallery: (_) async {
-          final galleryStatus = await Permission.photos.request();
+          final requestGalleryPermission = await [
+            Permission.photos,
+            Permission.storage
+          ].request();
 
-          if (galleryStatus.isDenied || galleryStatus.isPermanentlyDenied) {
-            emit(const AddStoryState.error(
-              message: 'Gallery permission is denied',
-            ));
-            openAppSettings();
-          } else {
-            final imagePicker = ImagePicker();
-            final pickedFile = await imagePicker.pickImage(
-              source: ImageSource.gallery,
-            );
-            final imagePath = await pickedFile?.readAsBytes();
-            final fileSize = imagePath?.lengthInBytes;
-            const maxFileSizeToUpload = 1 * 1048576;
+          requestGalleryPermission.forEach((key, value) async {
+            if (value.isDenied || value.isPermanentlyDenied) {
+              emit(const AddStoryState.error(
+                message: 'Gallery permission is denied',
+              ));
+              openAppSettings();
+            } else {
+              final imagePicker = ImagePicker();
+              final pickedFile = await imagePicker.pickImage(
+                source: ImageSource.gallery,
+              );
+              final imagePath = await pickedFile?.readAsBytes();
+              final fileSize = imagePath?.lengthInBytes;
+              const maxFileSizeToUpload = 1 * 1048576;
 
-            if (pickedFile != null) {
-              if ((fileSize ?? 0) <= maxFileSizeToUpload) {
-                emit(AddStoryState.pickImage(
-                  image: XFile(pickedFile.path),
-                ));
-              } else {
-                emit(const AddStoryState.error(
-                  message: 'Maximum image size is 1MB',
-                ));
+              if (pickedFile != null) {
+                if ((fileSize ?? 0) <= maxFileSizeToUpload) {
+                  emit(AddStoryState.pickImage(
+                    image: XFile(pickedFile.path),
+                  ));
+                } else {
+                  emit(const AddStoryState.error(
+                    message: 'Maximum image size is 1MB',
+                  ));
+                }
               }
             }
-          }
+          });
         },
         pickImageCamera: (_) async {
           final cameraStatus = await Permission.camera.request();

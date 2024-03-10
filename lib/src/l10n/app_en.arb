@@ -1,13 +1,50 @@
 {
+    "@@locale": "en",
     "titleAppBar": "Dicoding Story App",
     "emptyStoryList": "No stories being posted right now",
     "welcome": "Welcome",
     "dontHaveAccount": "Don't have an account ? ",
     "signUp": "Sign Up",
-    "login": "Login",
+    "login": "Log In",
     "hintInputEmail": "Input email address",
     "hintInputPassword": "Input password",
     "hintInputUsername": "Input username",
     "alreadyHaveAccount": "Already have an account ? ",
-    "createAccount": "Create Account"
+    "createAccount": "Create Account",
+    "errMinimPassLength": "Minimal password is {number} characters",
+    "@errMinimPassLength": {
+        "placeholders": {
+            "number": {
+                "type": "String"
+            }
+        }
+    },
+    "errPassEmpty": "Password cannot be empty",
+    "errEmailEmpty": "Email cannot be empty",
+    "errUsernameEmpty": "Username cannot be empty",
+    "logOut": "Log out",
+    "hasLoggedOut": "You has logged out",
+    "sortByDate": "Date {sort}",
+    "@sortByDate": {
+        "placeholders": {
+            "sort": {
+                "type": "String"
+            }
+        }
+    },
+    "tambahCerita": "Add Story",
+    "camera": "Camera",
+    "galleri": "Gallery",
+    "tulisCeritaDisini": "Write your story here...",
+    "submit": "Submit",
+    "galleryPermisDenied": "Gallery permission denied",
+    "cameraPermisDenied": "Camera permission denied",
+    "maksImageText": "Maximum image size is {size}",
+    "@maksImageText": {
+        "placeholders": {
+            "size": {
+                "type": "String"
+            }
+        }
+    }
 }

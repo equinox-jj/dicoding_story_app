@@ -35,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -58,134 +59,143 @@ class _LoginPageState extends State<LoginPage> {
               loading: (_) => const Center(
                 child: CircularProgressIndicator.adaptive(),
               ),
-              orElse: () => Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            l?.welcome ?? '',
-                            style: const TextStyle(
-                              fontSize: 25.0,
-                              fontWeight: FontWeight.w600,
+              orElse: () => Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              l?.welcome ?? '',
+                              style: const TextStyle(
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 30.0),
-                          FormFieldWidget(
-                            controller: emailController,
-                            hintText: l?.hintInputEmail,
-                            maxLines: 1,
-                            textInputAction: TextInputAction.next,
-                            keyboardType: TextInputType.emailAddress,
-                            preffixIcon: const Icon(Icons.email_rounded),
-                            validator: (value) {
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 10.0),
-                          BlocSelector<LoginBloc, LoginState, bool>(
-                            selector: (state) {
-                              return state.maybeMap(
-                                orElse: () => false,
-                                isTextObscured: (value) =>
-                                    value.isObscure ? true : false,
-                              );
-                            },
-                            builder: (context, state) {
-                              return FormFieldWidget(
-                                controller: passwordController,
-                                hintText: l?.hintInputPassword,
-                                maxLines: 1,
-                                obscureText: !state,
-                                preffixIcon: const Icon(Icons.lock_rounded),
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    context.read<LoginBloc>().add(
-                                          LoginEvent.isTextObscured(
-                                            isObscure: !state,
-                                          ),
-                                        );
+                            const SizedBox(height: 30.0),
+                            FormFieldWidget(
+                              controller: emailController,
+                              hintText: l?.hintInputEmail,
+                              maxLines: 1,
+                              textInputAction: TextInputAction.next,
+                              keyboardType: TextInputType.emailAddress,
+                              preffixIcon: const Icon(Icons.email_rounded),
+                              validator: (value) {
+                                if (value?.isEmpty == true) {
+                                  return l?.errEmailEmpty;
+                                }
+                
+                                return null;
+                              },
+                            ),
+                            const SizedBox(height: 10.0),
+                            BlocSelector<LoginBloc, LoginState, bool>(
+                              selector: (state) {
+                                return state.maybeMap(
+                                  orElse: () => false,
+                                  isTextObscured: (value) =>
+                                      value.isObscure ? true : false,
+                                );
+                              },
+                              builder: (context, state) {
+                                return FormFieldWidget(
+                                  controller: passwordController,
+                                  hintText: l?.hintInputPassword,
+                                  maxLines: 1,
+                                  obscureText: !state,
+                                  preffixIcon: const Icon(Icons.lock_rounded),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      context.read<LoginBloc>().add(
+                                            LoginEvent.isTextObscured(
+                                              isObscure: !state,
+                                            ),
+                                          );
+                                    },
+                                    icon: state
+                                        ? const Icon(Icons.visibility_rounded)
+                                        : const Icon(Icons.visibility_off_rounded),
+                                  ),
+                                  validator: (value) {
+                                    if ((value?.length ?? 0) <= 8) {
+                                      return l?.errMinimPassLength('8');
+                                    } else if (value?.isEmpty == true) {
+                                      return l?.errPassEmpty;
+                                    }
+                
+                                    return null;
                                   },
-                                  icon: state
-                                      ? const Icon(Icons.visibility_rounded)
-                                      : const Icon(
-                                          Icons.visibility_off_rounded),
-                                ),
-                                validator: (value) {
-                                  if (value!.length <= 8) {
-                                    return 'Password must be at least 8 characters';
-                                  } else if (value.isEmpty) {
-                                    return 'Password cannot be empty';
-                                  }
-                                  return null;
-                                },
-                              );
-                            },
-                          ),
-                          const SizedBox(height: 30.0),
-                          Center(
-                            child: MainButtonWidget(
-                              onPressed: () {
-                                context.read<LoginBloc>().add(
+                                );
+                              },
+                            ),
+                            const SizedBox(height: 30.0),
+                            Center(
+                              child: MainButtonWidget(
+                                onPressed: () {
+                                  if (formKey.currentState?.validate() == true) {
+                                    context.read<LoginBloc>().add(
                                       LoginEvent.loginUser(
                                         email: emailController.value.text,
                                         password: passwordController.value.text,
                                       ),
                                     );
-                              },
-                              text: l?.login ?? '',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0,
-                        vertical: 15.0,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          const Divider(),
-                          Center(
-                            child: RichText(
-                              text: TextSpan(
-                                text: l?.dontHaveAccount,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: l?.signUp,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.blue,
-                                    ),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        context.pushNamed(RouteName.REGISTER);
-                                      },
-                                  ),
-                                ],
+                                  }
+                                },
+                                text: l?.login ?? '',
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  )
-                ],
+                    Flexible(
+                      flex: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                          vertical: 15.0,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const Divider(),
+                            Center(
+                              child: RichText(
+                                text: TextSpan(
+                                  text: l?.dontHaveAccount,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: l?.signUp,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.blue,
+                                      ),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          context.pushNamed(RouteName.REGISTER);
+                                        },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },

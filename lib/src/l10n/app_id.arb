@@ -1,13 +1,122 @@
 {
+    "@@locale": "id",
     "titleAppBar": "Dicoding Story App",
+    "@titleAppBar": {
+        "description": "Nama title pada appbar"
+    },
     "emptyStoryList": "Tidak ada cerita yang diposting saat ini",
+    "@emptyStoryList": {
+        "description": "Memberitahu pesan pada user ketika data kosong"
+    },
     "welcome": "Selamat datang",
+    "@welcome": {
+        "description": "Text selamat datang"
+    },
     "dontHaveAccount": "Tidak punya akun ? ",
+    "@dontHaveAccount": {
+        "description": "Text tidak punya akun"
+    },
     "signUp": "Daftar",
+    "@signUp": {
+        "description": "Text daftar"
+    },
     "login": "Masuk",
+    "@login": {
+        "description": "Text masuk"
+    },
     "hintInputEmail": "Masukkan email address",
+    "@hintInputEmail": {
+        "description": "Hint text input email"
+    },
     "hintInputPassword": "Masukkan password",
+    "@hintInputPassword": {
+        "description": "Hint text input password"
+    },
     "hintInputUsername": "Masukan username",
+    "@hintInputUsername": {
+        "description": "Hint text input username"
+    },
     "alreadyHaveAccount": "Sudah punya akun ? ",
-    "createAccount": "Buat Akun"
+    "@alreadyHaveAccount": {
+        "description": "Text sudah punya akun"
+    },
+    "createAccount": "Buat Akun",
+    "@createAccount": {
+        "description": "Text buat akun"
+    },
+    "errMinimPassLength": "Minimal password adalah {number} karakter",
+    "@errMinimPassLength": {
+        "description": "Validation error password",
+        "placeholders": {
+            "number": {
+                "type": "String"
+            }
+        }
+    },
+    "errPassEmpty": "Password tidak boleh kosong",
+    "@errPassEmpty": {
+        "description": "Validation error password"
+    },
+    "errEmailEmpty": "Email tidak boleh kosong",
+    "@errEmailEmpty": {
+        "description": "Validation error email"
+    },
+    "errUsernameEmpty": "Username tidak boleh kosong",
+    "@errUsernameEmpty": {
+        "description": "Validation error username"
+    },
+    "logOut": "Keluar",
+    "@logOut": {
+        "description": "Text keluar"
+    },
+    "hasLoggedOut": "Kamu telah keluar",
+    "@hasLoggedOut": {
+        "description": "Text kamu telah keluar"
+    },
+    "sortByDate": "Tanggal {sort}",
+    "@sortByDate": {
+        "description": "Text mensorting item berdasarkan tanggal",
+        "placeholders": {
+            "sort": {
+                "type": "String"
+            }
+        }
+    },
+    "tambahCerita": "Tambahkan Cerita",
+    "@tambahCerita": {
+        "description": "Text tambahkan cerita"
+    },
+    "camera": "Kamera",
+    "@camera": {
+        "description": "Text kamera"
+    },
+    "galleri": "Galleri",
+    "@galleri": {
+        "description": "Text galleri"
+    },
+    "tulisCeritaDisini": "Tuliskan cerita kamu disini...",
+    "@tulisCeritaDisini": {
+        "description": "Hint text tuliskan cerita"
+    },
+    "submit": "Kirim",
+    "@submit": {
+        "description": "Text kirim"
+    },
+    "galleryPermisDenied": "Izin galleri ditolak",
+    "@galleryPermisDenied": {
+        "description": "Error text saat permission gallery ditolak"
+    },
+    "cameraPermisDenied": "Izin kamera ditolak",
+    "@cameraPermisDenied": {
+        "description": "Error text saat permission kamera ditolak"
+    },
+    "maksImageText": "Maksimum ukuran gambar adalah {size}",
+    "@maksImageText": {
+        "description": "Error text ukuran file/gambar melebihi batas saat upload image",
+        "placeholders": {
+            "size": {
+                "type": "String"
+            }
+        }
+    }
 }

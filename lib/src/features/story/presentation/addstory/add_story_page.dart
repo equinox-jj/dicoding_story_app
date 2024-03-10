@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../main.dart';
 import '../../../../core/common/widgets/form_field_widget.dart';
 import '../../../../core/common/widgets/image_picker_widget.dart';
 import '../../../../core/common/widgets/main_button_widget.dart';
@@ -29,12 +30,13 @@ class _AddStoryPageState extends State<AddStoryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     final w = MediaQuery.sizeOf(context).width;
     final h = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Story'),
+        title: Text(l?.tambahCerita ?? ''),
       ),
       body: BlocConsumer<AddStoryBloc, AddStoryState>(
         listener: (context, state) {
@@ -94,7 +96,7 @@ class _AddStoryPageState extends State<AddStoryPage> {
                                     const AddStoryEvent.pickImageCamera(),
                                   );
                             },
-                            text: 'Camera',
+                            text: l?.camera ?? '',
                           ),
                         ),
                         Center(
@@ -104,7 +106,7 @@ class _AddStoryPageState extends State<AddStoryPage> {
                                     const AddStoryEvent.pickImageGallery(),
                                   );
                             },
-                            text: 'Gallery',
+                            text: l?.galleri ?? '',
                           ),
                         ),
                       ],
@@ -114,7 +116,7 @@ class _AddStoryPageState extends State<AddStoryPage> {
                       controller: descriptionController,
                       textCapitalization: TextCapitalization.sentences,
                       maxLines: 7,
-                      hintText: 'Tuliskan cerita kamu disini...',
+                      hintText: l?.tulisCeritaDisini,
                       contentPadding: const EdgeInsets.all(15.0),
                     ),
                     const SizedBox(height: 15.0),
@@ -128,7 +130,7 @@ class _AddStoryPageState extends State<AddStoryPage> {
                                 ),
                               );
                         },
-                        text: 'Submit',
+                        text: l?.submit ?? '',
                       ),
                     ),
                   ],

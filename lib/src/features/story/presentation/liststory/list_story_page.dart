@@ -68,7 +68,7 @@ class _ListStoryPageState extends State<ListStoryPage> {
             },
             itemBuilder: (context) {
               return [
-                const PopupMenuItem(value: 0, child: Text('Logout')),
+                PopupMenuItem(value: 0, child: Text(l?.logOut ?? '')),
               ];
             },
           ),
@@ -92,7 +92,7 @@ class _ListStoryPageState extends State<ListStoryPage> {
                 context.goNamed(RouteName.LOGIN);
                 HelperFunction.snackBar(
                   context: context,
-                  message: 'You has logged out',
+                  message: l?.hasLoggedOut,
                 );
               },
             );
@@ -124,7 +124,7 @@ class _ListStoryPageState extends State<ListStoryPage> {
                               child: RadioButtonWidget(
                                 value: 0,
                                 groupValue: value.index,
-                                title: 'Date Asc',
+                                title: l?.sortByDate('Asc'),
                                 secondary: const Icon(
                                   Icons.arrow_upward_rounded,
                                 ),
@@ -141,7 +141,7 @@ class _ListStoryPageState extends State<ListStoryPage> {
                               child: RadioButtonWidget(
                                 value: 1,
                                 groupValue: value.index,
-                                title: 'Date Desc',
+                                title: l?.sortByDate('Desc'),
                                 secondary: const Icon(
                                   Icons.arrow_downward_rounded,
                                 ),
