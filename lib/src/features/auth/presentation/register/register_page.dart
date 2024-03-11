@@ -136,9 +136,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                           ),
                                   ),
                                   validator: (value) {
-                                    if (value!.length <= 8) {
+                                    if ((value?.length ?? 0) < 8) {
                                       return l?.errMinimPassLength('8');
-                                    } else if (value.isEmpty) {
+                                    } else if (value?.isEmpty == true) {
                                       return l?.errPassEmpty;
                                     }
                                     

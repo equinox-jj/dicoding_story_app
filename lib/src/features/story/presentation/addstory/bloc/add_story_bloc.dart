@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -23,39 +24,67 @@ class AddStoryBloc extends Bloc<AddStoryEvent, AddStoryState> {
       await event.maybeMap(
         orElse: () => null,
         pickImageGallery: (_) async {
-          final requestGalleryPermission = await [
-            Permission.photos,
-            Permission.storage
-          ].request();
+          final deviceInfo = DeviceInfoPlugin();
+          final galleryStatusA13 = await Permission.photos.request();
+          final galleryStatus = await Permission.storage.request();
+          if (Platform.isAndroid) {
+            final infoVersion = await deviceInfo.androidInfo;
+            if (infoVersion.version.sdkInt >= 33) {
+              if (galleryStatusA13.isDenied || galleryStatusA13.isPermanentlyDenied) {
+                emit(const AddStoryState.error(
+                  message: 'Gallery permission is denied',
+                ));
+                openAppSettings();
+              } else {
+                final imagePicker = ImagePicker();
+                final pickedFile = await imagePicker.pickImage(
+                  source: ImageSource.gallery,
+                );
+                final imagePath = await pickedFile?.readAsBytes();
+                final fileSize = imagePath?.lengthInBytes;
+                const maxFileSizeToUpload = 1 * 1048576;
 
-          requestGalleryPermission.forEach((key, value) async {
-            if (value.isDenied || value.isPermanentlyDenied) {
-              emit(const AddStoryState.error(
-                message: 'Gallery permission is denied',
-              ));
-              openAppSettings();
+                if (pickedFile != null) {
+                  if ((fileSize ?? 0) <= maxFileSizeToUpload) {
+                    emit(AddStoryState.pickImage(
+                      image: XFile(pickedFile.path),
+                    ));
+                  } else {
+                    emit(const AddStoryState.error(
+                      message: 'Maximum image size is 1MB',
+                    ));
+                  }
+                }
+              }
             } else {
-              final imagePicker = ImagePicker();
-              final pickedFile = await imagePicker.pickImage(
-                source: ImageSource.gallery,
-              );
-              final imagePath = await pickedFile?.readAsBytes();
-              final fileSize = imagePath?.lengthInBytes;
-              const maxFileSizeToUpload = 1 * 1048576;
+              if (galleryStatus.isDenied || galleryStatus.isPermanentlyDenied) {
+                emit(const AddStoryState.error(
+                  message: 'Gallery permission is denied',
+                ));
+                openAppSettings();
+              } else {
+                final imagePicker = ImagePicker();
+                final pickedFile = await imagePicker.pickImage(
+                  source: ImageSource.gallery,
+                );
+                final imagePath = await pickedFile?.readAsBytes();
+                final fileSize = imagePath?.lengthInBytes;
+                const maxFileSizeToUpload = 1 * 1048576;
 
-              if (pickedFile != null) {
-                if ((fileSize ?? 0) <= maxFileSizeToUpload) {
-                  emit(AddStoryState.pickImage(
-                    image: XFile(pickedFile.path),
-                  ));
-                } else {
-                  emit(const AddStoryState.error(
-                    message: 'Maximum image size is 1MB',
-                  ));
+                if (pickedFile != null) {
+                  if ((fileSize ?? 0) <= maxFileSizeToUpload) {
+                    emit(AddStoryState.pickImage(
+                      image: XFile(pickedFile.path),
+                    ));
+                  } else {
+                    emit(const AddStoryState.error(
+                      message: 'Maximum image size is 1MB',
+                    ));
+                  }
                 }
               }
             }
-          });
+          }
         },
         pickImageCamera: (_) async {
           final cameraStatus = await Permission.camera.request();

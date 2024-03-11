@@ -14,11 +14,9 @@ import '../../features/story/presentation/addstory/bloc/add_story_bloc.dart';
 import '../../features/story/presentation/liststory/bloc/list_story_bloc.dart';
 import '../../features/story/presentation/liststory/list_story_page.dart';
 import '../../features/story/presentation/storydetail/story_detail_page.dart';
-import '../helper/shared_preferences_helper.dart';
 import 'route_name.dart';
 
 final _navigatorState = GlobalKey<NavigatorState>();
-final _prefs = sl<SharedPreferencesHelper>();
 
 GoRouter router(String? initialLocation) {
   return GoRouter(
