@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'src/app.dart';
@@ -33,8 +34,7 @@ Future<void> main() async {
   final prefs = sl<SharedPreferencesHelper>();
   final token = await prefs.getToken;
   final isLoggedIn = token.isNotEmpty;
-  final initialLocation =
-      isLoggedIn ? RouterPath.LIST_STORY : RouterPath.INITIAL;
+  final initialLocation = isLoggedIn ? RouterPath.LIST_STORY : RouterPath.INITIAL;
 
   runApp(MyApp(initialLocation: initialLocation));
 }

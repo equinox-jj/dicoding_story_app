@@ -108,8 +108,7 @@ class _ListStoryPageState extends State<ListStoryPage> {
                   SliverAppBar(
                     floating: true,
                     snap: true,
-                    flexibleSpace:
-                        BlocSelector<ListStoryBloc, ListStoryState, int>(
+                    flexibleSpace: BlocSelector<ListStoryBloc, ListStoryState, int>(
                       selector: (state) {
                         return state.maybeMap(
                           orElse: () => 1,
