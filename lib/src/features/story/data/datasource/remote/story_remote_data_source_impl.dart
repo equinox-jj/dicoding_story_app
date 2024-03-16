@@ -17,13 +17,13 @@ class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
     required String token,
     required String description,
     required File photo,
-    num? lat,
-    num? lon,
+    double? lat,
+    double? lon,
   }) async {
     final fileName = photo.path.split('/').last;
     final formData = FormData.fromMap({
-      // 'lat': lat,
-      // 'lon': lon,
+      'lat': lat,
+      'lon': lon,
       'description': description,
       'photo': photo.path.isNotEmpty
           ? await MultipartFile.fromFile(

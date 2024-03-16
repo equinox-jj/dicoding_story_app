@@ -9,8 +9,8 @@ abstract class StoryRemoteDataSource {
     required String token,
     required String description,
     required File photo,
-    num? lat,
-    num? lon,
+    double? lat,
+    double? lon,
   });
   Future<GetStoriesResponse> getAllStories({
     required String token,

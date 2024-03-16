@@ -12,8 +12,8 @@ abstract class StoryRepository {
     required String token,
     required String description,
     required File photo,
-    num? lat,
-    num? lon,
+    double? lat,
+    double? lon,
   });
   Future<Either<Failure, GetStoriesResponse>> getAllStories({
     required String token,
