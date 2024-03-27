@@ -7,7 +7,6 @@ class ListStoryState with _$ListStoryState {
   const factory ListStoryState.loading() = ListStoryLoading;
   const factory ListStoryState.success({
     List<ListStoryResponse>? response,
-    @Default(1) int index,
   }) = ListStorySuccess;
   const factory ListStoryState.error({
     @Default('') String message,

@@ -15,24 +15,36 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
   final prefs = sl<SharedPreferencesHelper>();
   final StoryRepository _storyRepository;
 
+  final listStories = <ListStoryResponse>[];
+  final size = 20;
+  int page = 1;
+  bool hasMore = true;
+
   ListStoryBloc(this._storyRepository) : super(const ListStoryInitial()) {
     on<ListStoryEvent>((event, emit) async {
       await event.maybeMap(
         orElse: () => null,
         logout: (value) async {
           prefs.removeToken();
-          prefs.removeSortBy();
           emit(const ListStoryState.logout());
         },
-        getListStory: (value) async {
-          emit(const ListStoryState.loading());
+        onRefresh: (_) async {
+          listStories.clear();
+          page = 1;
+
+          add(const _OnGetListStory());
+        },
+        getListStory: (_) async {
+          if (page == 1) {
+            emit(const ListStoryState.loading());
+          }
 
           final token = await prefs.getToken;
           final result = await _storyRepository.getAllStories(
             token: token,
             location: 0,
-            page: 1,
-            size: 30,
+            page: page,
+            size: size,
           );
 
           result.fold(
@@ -44,34 +56,22 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
               ));
             },
             (success) {
-              final listStory = success.listStory;
-              final sortListDesc = listStory?.map((e) => e).toList()
-                ?..sort((a, b) => b.createdAt?.compareTo(a.createdAt!) ?? 0);
-              final sortListAsc = listStory?.map((e) => e).toList()
-                ?..sort((a, b) => a.createdAt?.compareTo(b.createdAt!) ?? 0);
+              if ((success.listStory?.length ?? 0) < size) {
+                hasMore = false;
+              } else {
+                page = page + 1;
+              }
 
-              switch (value.index) {
-                case 0:
-                  prefs.setSortBy(value.index);
-                  if (sortListAsc?.isEmpty == true) {
-                    emit(const ListStoryState.empty());
-                  } else {
-                    emit(ListStoryState.success(
-                      index: value.index,
-                      response: sortListAsc,
-                    ));
-                  }
-                  break;
-                default:
-                  prefs.setSortBy(value.index);
-                  if (sortListDesc?.isEmpty == true) {
-                    emit(const ListStoryState.empty());
-                  } else {
-                    emit(ListStoryState.success(
-                      index: value.index,
-                      response: sortListDesc,
-                    ));
-                  }
+              listStories.addAll(success.listStory ?? []);
+
+              final sortListDesc = listStories.map((e) => e).toList()
+                ..sort((a, b) => b.createdAt?.compareTo(a.createdAt!) ?? 0);
+
+              if (sortListDesc.isEmpty == true) {
+                hasMore = false;
+                emit(const ListStoryState.empty());
+              } else {
+                emit(ListStoryState.success(response: sortListDesc));
               }
             },
           );

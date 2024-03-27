@@ -18,19 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ListStoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index) getListStory,
+    required TResult Function() getListStory,
+    required TResult Function() onRefresh,
     required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index)? getListStory,
+    TResult? Function()? getListStory,
+    TResult? Function()? onRefresh,
     TResult? Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index)? getListStory,
+    TResult Function()? getListStory,
+    TResult Function()? onRefresh,
     TResult Function()? logout,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$ListStoryEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
+    required TResult Function(_OnGetListStoryRefresh value) onRefresh,
     required TResult Function(_OnLogoutClicked value) logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
+    TResult? Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult? Function(_OnLogoutClicked value)? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
+    TResult Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult Function(_OnLogoutClicked value)? logout,
     required TResult orElse(),
   }) =>
@@ -79,8 +85,6 @@ abstract class _$$OnGetListStoryImplCopyWith<$Res> {
   factory _$$OnGetListStoryImplCopyWith(_$OnGetListStoryImpl value,
           $Res Function(_$OnGetListStoryImpl) then) =
       __$$OnGetListStoryImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int index});
 }
 
 /// @nodoc
@@ -90,79 +94,57 @@ class __$$OnGetListStoryImplCopyWithImpl<$Res>
   __$$OnGetListStoryImplCopyWithImpl(
       _$OnGetListStoryImpl _value, $Res Function(_$OnGetListStoryImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = null,
-  }) {
-    return _then(_$OnGetListStoryImpl(
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$OnGetListStoryImpl implements _OnGetListStory {
-  const _$OnGetListStoryImpl({required this.index});
-
-  @override
-  final int index;
+  const _$OnGetListStoryImpl();
 
   @override
   String toString() {
-    return 'ListStoryEvent.getListStory(index: $index)';
+    return 'ListStoryEvent.getListStory()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OnGetListStoryImpl &&
-            (identical(other.index, index) || other.index == index));
+        (other.runtimeType == runtimeType && other is _$OnGetListStoryImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OnGetListStoryImplCopyWith<_$OnGetListStoryImpl> get copyWith =>
-      __$$OnGetListStoryImplCopyWithImpl<_$OnGetListStoryImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index) getListStory,
+    required TResult Function() getListStory,
+    required TResult Function() onRefresh,
     required TResult Function() logout,
   }) {
-    return getListStory(index);
+    return getListStory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index)? getListStory,
+    TResult? Function()? getListStory,
+    TResult? Function()? onRefresh,
     TResult? Function()? logout,
   }) {
-    return getListStory?.call(index);
+    return getListStory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index)? getListStory,
+    TResult Function()? getListStory,
+    TResult Function()? onRefresh,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (getListStory != null) {
-      return getListStory(index);
+      return getListStory();
     }
     return orElse();
   }
@@ -171,6 +153,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
+    required TResult Function(_OnGetListStoryRefresh value) onRefresh,
     required TResult Function(_OnLogoutClicked value) logout,
   }) {
     return getListStory(this);
@@ -180,6 +163,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
+    TResult? Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult? Function(_OnLogoutClicked value)? logout,
   }) {
     return getListStory?.call(this);
@@ -189,6 +173,7 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
+    TResult Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult Function(_OnLogoutClicked value)? logout,
     required TResult orElse(),
   }) {
@@ -200,13 +185,117 @@ class _$OnGetListStoryImpl implements _OnGetListStory {
 }
 
 abstract class _OnGetListStory implements ListStoryEvent {
-  const factory _OnGetListStory({required final int index}) =
-      _$OnGetListStoryImpl;
+  const factory _OnGetListStory() = _$OnGetListStoryImpl;
+}
 
-  int get index;
-  @JsonKey(ignore: true)
-  _$$OnGetListStoryImplCopyWith<_$OnGetListStoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+/// @nodoc
+abstract class _$$OnGetListStoryRefreshImplCopyWith<$Res> {
+  factory _$$OnGetListStoryRefreshImplCopyWith(
+          _$OnGetListStoryRefreshImpl value,
+          $Res Function(_$OnGetListStoryRefreshImpl) then) =
+      __$$OnGetListStoryRefreshImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnGetListStoryRefreshImplCopyWithImpl<$Res>
+    extends _$ListStoryEventCopyWithImpl<$Res, _$OnGetListStoryRefreshImpl>
+    implements _$$OnGetListStoryRefreshImplCopyWith<$Res> {
+  __$$OnGetListStoryRefreshImplCopyWithImpl(_$OnGetListStoryRefreshImpl _value,
+      $Res Function(_$OnGetListStoryRefreshImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnGetListStoryRefreshImpl implements _OnGetListStoryRefresh {
+  const _$OnGetListStoryRefreshImpl();
+
+  @override
+  String toString() {
+    return 'ListStoryEvent.onRefresh()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnGetListStoryRefreshImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getListStory,
+    required TResult Function() onRefresh,
+    required TResult Function() logout,
+  }) {
+    return onRefresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getListStory,
+    TResult? Function()? onRefresh,
+    TResult? Function()? logout,
+  }) {
+    return onRefresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getListStory,
+    TResult Function()? onRefresh,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (onRefresh != null) {
+      return onRefresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnGetListStory value) getListStory,
+    required TResult Function(_OnGetListStoryRefresh value) onRefresh,
+    required TResult Function(_OnLogoutClicked value) logout,
+  }) {
+    return onRefresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnGetListStory value)? getListStory,
+    TResult? Function(_OnGetListStoryRefresh value)? onRefresh,
+    TResult? Function(_OnLogoutClicked value)? logout,
+  }) {
+    return onRefresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnGetListStory value)? getListStory,
+    TResult Function(_OnGetListStoryRefresh value)? onRefresh,
+    TResult Function(_OnLogoutClicked value)? logout,
+    required TResult orElse(),
+  }) {
+    if (onRefresh != null) {
+      return onRefresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnGetListStoryRefresh implements ListStoryEvent {
+  const factory _OnGetListStoryRefresh() = _$OnGetListStoryRefreshImpl;
 }
 
 /// @nodoc
@@ -247,7 +336,8 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int index) getListStory,
+    required TResult Function() getListStory,
+    required TResult Function() onRefresh,
     required TResult Function() logout,
   }) {
     return logout();
@@ -256,7 +346,8 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index)? getListStory,
+    TResult? Function()? getListStory,
+    TResult? Function()? onRefresh,
     TResult? Function()? logout,
   }) {
     return logout?.call();
@@ -265,7 +356,8 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index)? getListStory,
+    TResult Function()? getListStory,
+    TResult Function()? onRefresh,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
@@ -279,6 +371,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnGetListStory value) getListStory,
+    required TResult Function(_OnGetListStoryRefresh value) onRefresh,
     required TResult Function(_OnLogoutClicked value) logout,
   }) {
     return logout(this);
@@ -288,6 +381,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnGetListStory value)? getListStory,
+    TResult? Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult? Function(_OnLogoutClicked value)? logout,
   }) {
     return logout?.call(this);
@@ -297,6 +391,7 @@ class _$OnLogoutClickedImpl implements _OnLogoutClicked {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnGetListStory value)? getListStory,
+    TResult Function(_OnGetListStoryRefresh value)? onRefresh,
     TResult Function(_OnLogoutClicked value)? logout,
     required TResult orElse(),
   }) {
@@ -318,8 +413,7 @@ mixin _$ListStoryState {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) =>
@@ -329,7 +423,7 @@ mixin _$ListStoryState {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) =>
@@ -339,7 +433,7 @@ mixin _$ListStoryState {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
@@ -437,8 +531,7 @@ class _$ListStoryInitialImpl implements ListStoryInitial {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
@@ -451,7 +544,7 @@ class _$ListStoryInitialImpl implements ListStoryInitial {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
@@ -464,7 +557,7 @@ class _$ListStoryInitialImpl implements ListStoryInitial {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
@@ -564,8 +657,7 @@ class _$ListStoryEmptyImpl implements ListStoryEmpty {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
@@ -578,7 +670,7 @@ class _$ListStoryEmptyImpl implements ListStoryEmpty {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
@@ -591,7 +683,7 @@ class _$ListStoryEmptyImpl implements ListStoryEmpty {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
@@ -691,8 +783,7 @@ class _$ListStoryLoadingImpl implements ListStoryLoading {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
@@ -705,7 +796,7 @@ class _$ListStoryLoadingImpl implements ListStoryLoading {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
@@ -718,7 +809,7 @@ class _$ListStoryLoadingImpl implements ListStoryLoading {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
@@ -783,7 +874,7 @@ abstract class _$$ListStorySuccessImplCopyWith<$Res> {
           $Res Function(_$ListStorySuccessImpl) then) =
       __$$ListStorySuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ListStoryResponse>? response, int index});
+  $Res call({List<ListStoryResponse>? response});
 }
 
 /// @nodoc
@@ -798,17 +889,12 @@ class __$$ListStorySuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? response = freezed,
-    Object? index = null,
   }) {
     return _then(_$ListStorySuccessImpl(
       response: freezed == response
           ? _value._response
           : response // ignore: cast_nullable_to_non_nullable
               as List<ListStoryResponse>?,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -816,8 +902,7 @@ class __$$ListStorySuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ListStorySuccessImpl implements ListStorySuccess {
-  const _$ListStorySuccessImpl(
-      {final List<ListStoryResponse>? response, this.index = 1})
+  const _$ListStorySuccessImpl({final List<ListStoryResponse>? response})
       : _response = response;
 
   final List<ListStoryResponse>? _response;
@@ -831,12 +916,8 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
   }
 
   @override
-  @JsonKey()
-  final int index;
-
-  @override
   String toString() {
-    return 'ListStoryState.success(response: $response, index: $index)';
+    return 'ListStoryState.success(response: $response)';
   }
 
   @override
@@ -844,13 +925,12 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListStorySuccessImpl &&
-            const DeepCollectionEquality().equals(other._response, _response) &&
-            (identical(other.index, index) || other.index == index));
+            const DeepCollectionEquality().equals(other._response, _response));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_response), index);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
 
   @JsonKey(ignore: true)
   @override
@@ -865,12 +945,11 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
-    return success(response, index);
+    return success(response);
   }
 
   @override
@@ -879,11 +958,11 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
-    return success?.call(response, index);
+    return success?.call(response);
   }
 
   @override
@@ -892,13 +971,13 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(response, index);
+      return success(response);
     }
     return orElse();
   }
@@ -948,12 +1027,10 @@ class _$ListStorySuccessImpl implements ListStorySuccess {
 }
 
 abstract class ListStorySuccess implements ListStoryState {
-  const factory ListStorySuccess(
-      {final List<ListStoryResponse>? response,
-      final int index}) = _$ListStorySuccessImpl;
+  const factory ListStorySuccess({final List<ListStoryResponse>? response}) =
+      _$ListStorySuccessImpl;
 
   List<ListStoryResponse>? get response;
-  int get index;
   @JsonKey(ignore: true)
   _$$ListStorySuccessImplCopyWith<_$ListStorySuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1028,8 +1105,7 @@ class _$ListStoryErrorImpl implements ListStoryError {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
@@ -1042,7 +1118,7 @@ class _$ListStoryErrorImpl implements ListStoryError {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
@@ -1055,7 +1131,7 @@ class _$ListStoryErrorImpl implements ListStoryError {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),
@@ -1160,8 +1236,7 @@ class _$ListStoryLogoutImpl implements ListStoryLogout {
     required TResult Function() initial,
     required TResult Function() empty,
     required TResult Function() loading,
-    required TResult Function(List<ListStoryResponse>? response, int index)
-        success,
+    required TResult Function(List<ListStoryResponse>? response) success,
     required TResult Function(String message) error,
     required TResult Function() logout,
   }) {
@@ -1174,7 +1249,7 @@ class _$ListStoryLogoutImpl implements ListStoryLogout {
     TResult? Function()? initial,
     TResult? Function()? empty,
     TResult? Function()? loading,
-    TResult? Function(List<ListStoryResponse>? response, int index)? success,
+    TResult? Function(List<ListStoryResponse>? response)? success,
     TResult? Function(String message)? error,
     TResult? Function()? logout,
   }) {
@@ -1187,7 +1262,7 @@ class _$ListStoryLogoutImpl implements ListStoryLogout {
     TResult Function()? initial,
     TResult Function()? empty,
     TResult Function()? loading,
-    TResult Function(List<ListStoryResponse>? response, int index)? success,
+    TResult Function(List<ListStoryResponse>? response)? success,
     TResult Function(String message)? error,
     TResult Function()? logout,
     required TResult orElse(),

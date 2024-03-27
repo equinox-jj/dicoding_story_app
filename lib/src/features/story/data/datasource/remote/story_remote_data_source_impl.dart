@@ -22,8 +22,8 @@ class StoryRemoteDataSourceImpl extends StoryRemoteDataSource {
   }) async {
     final fileName = photo.path.split('/').last;
     final formData = FormData.fromMap({
-      'lat': lat,
-      'lon': lon,
+      // 'lat': lat,
+      // 'lon': lon,
       'description': description,
       'photo': photo.path.isNotEmpty
           ? await MultipartFile.fromFile(
