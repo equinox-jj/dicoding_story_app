@@ -108,6 +108,22 @@ class _ListStoryPageState extends State<ListStoryPage> {
 
             return state.maybeMap(
               orElse: () => const SizedBox.shrink(),
+              error: (value) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(value.message),
+                    ElevatedButton(
+                      onPressed: () {
+                        context.read<ListStoryBloc>().add(
+                              const ListStoryEvent.onRefresh(),
+                            );
+                      },
+                      child: const Text('Refresh'),
+                    ),
+                  ],
+                ),
+              ),
               loading: (_) => const Center(
                 child: CircularProgressIndicator.adaptive(),
               ),

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import '../../../../core/config/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -37,6 +38,12 @@ class _AddStoryPageState extends State<AddStoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l?.tambahCerita ?? ''),
+      ),
+      floatingActionButton: FloatingActionButton.large(
+        onPressed: () {
+          context.pushNamed(RouteName.ADD_STORY_MAPS);
+        },
+        child: const Icon(Icons.map_rounded),
       ),
       body: BlocConsumer<AddStoryBloc, AddStoryState>(
         listener: (context, state) {

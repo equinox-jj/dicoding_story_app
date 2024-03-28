@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'maps_bloc.dart';
+part of 'add_story_maps_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$MapsEvent {
+mixin _$AddStoryMapsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,15 +51,16 @@ mixin _$MapsEvent {
 }
 
 /// @nodoc
-abstract class $MapsEventCopyWith<$Res> {
-  factory $MapsEventCopyWith(MapsEvent value, $Res Function(MapsEvent) then) =
-      _$MapsEventCopyWithImpl<$Res, MapsEvent>;
+abstract class $AddStoryMapsEventCopyWith<$Res> {
+  factory $AddStoryMapsEventCopyWith(
+          AddStoryMapsEvent value, $Res Function(AddStoryMapsEvent) then) =
+      _$AddStoryMapsEventCopyWithImpl<$Res, AddStoryMapsEvent>;
 }
 
 /// @nodoc
-class _$MapsEventCopyWithImpl<$Res, $Val extends MapsEvent>
-    implements $MapsEventCopyWith<$Res> {
-  _$MapsEventCopyWithImpl(this._value, this._then);
+class _$AddStoryMapsEventCopyWithImpl<$Res, $Val extends AddStoryMapsEvent>
+    implements $AddStoryMapsEventCopyWith<$Res> {
+  _$AddStoryMapsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,7 +77,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$MapsEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$AddStoryMapsEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -90,7 +91,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'MapsEvent.started()';
+    return 'AddStoryMapsEvent.started()';
   }
 
   @override
@@ -159,12 +160,12 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements MapsEvent {
+abstract class _Started implements AddStoryMapsEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-mixin _$MapsState {
+mixin _$AddStoryMapsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -200,15 +201,16 @@ mixin _$MapsState {
 }
 
 /// @nodoc
-abstract class $MapsStateCopyWith<$Res> {
-  factory $MapsStateCopyWith(MapsState value, $Res Function(MapsState) then) =
-      _$MapsStateCopyWithImpl<$Res, MapsState>;
+abstract class $AddStoryMapsStateCopyWith<$Res> {
+  factory $AddStoryMapsStateCopyWith(
+          AddStoryMapsState value, $Res Function(AddStoryMapsState) then) =
+      _$AddStoryMapsStateCopyWithImpl<$Res, AddStoryMapsState>;
 }
 
 /// @nodoc
-class _$MapsStateCopyWithImpl<$Res, $Val extends MapsState>
-    implements $MapsStateCopyWith<$Res> {
-  _$MapsStateCopyWithImpl(this._value, this._then);
+class _$AddStoryMapsStateCopyWithImpl<$Res, $Val extends AddStoryMapsState>
+    implements $AddStoryMapsStateCopyWith<$Res> {
+  _$AddStoryMapsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -225,7 +227,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$MapsStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$AddStoryMapsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -239,7 +241,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'MapsState.initial()';
+    return 'AddStoryMapsState.initial()';
   }
 
   @override
@@ -308,6 +310,6 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements MapsState {
+abstract class _Initial implements AddStoryMapsState {
   const factory _Initial() = _$InitialImpl;
 }

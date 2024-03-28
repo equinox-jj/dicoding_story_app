@@ -124,6 +124,8 @@ class AddStoryBloc extends Bloc<AddStoryEvent, AddStoryState> {
             token: token,
             description: value.description,
             photo: value.image,
+            lat: value.lat,
+            lon: value.lon,
           );
 
           result.fold(

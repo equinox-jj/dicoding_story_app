@@ -1,3 +1,5 @@
+import '../../features/story/presentation/addstorymaps/add_story_maps_page.dart';
+import '../../features/story/presentation/addstorymaps/bloc/add_story_maps_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -84,6 +86,20 @@ GoRouter router(String? initialLocation) {
                 ),
               );
             },
+            routes: [
+              GoRoute(
+                name: RouteName.ADD_STORY_MAPS,
+                path: RouterPath.ADD_STORY_MAPS,
+                pageBuilder: (context, state) {
+                  return MaterialPage(
+                    child: BlocProvider(
+                      create: (context) => sl<AddStoryMapsBloc>(),
+                      child: const AddStoryMapsPage(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),

@@ -42,7 +42,7 @@ class ListStoryBloc extends Bloc<ListStoryEvent, ListStoryState> {
           final token = await prefs.getToken;
           final result = await _storyRepository.getAllStories(
             token: token,
-            location: 0,
+            location: 1,
             page: page,
             size: size,
           );

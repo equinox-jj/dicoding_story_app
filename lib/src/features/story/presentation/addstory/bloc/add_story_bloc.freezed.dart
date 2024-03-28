@@ -18,21 +18,25 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddStoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(File image, String description) uploadStory,
+    required TResult Function(
+            String description, File image, double? lat, double? lon)
+        uploadStory,
     required TResult Function() pickImageGallery,
     required TResult Function() pickImageCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(File image, String description)? uploadStory,
+    TResult? Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult? Function()? pickImageGallery,
     TResult? Function()? pickImageCamera,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(File image, String description)? uploadStory,
+    TResult Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult Function()? pickImageGallery,
     TResult Function()? pickImageCamera,
     required TResult orElse(),
@@ -86,7 +90,7 @@ abstract class _$$UploadStoryImplCopyWith<$Res> {
           _$UploadStoryImpl value, $Res Function(_$UploadStoryImpl) then) =
       __$$UploadStoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({File image, String description});
+  $Res call({String description, File image, double? lat, double? lon});
 }
 
 /// @nodoc
@@ -100,18 +104,28 @@ class __$$UploadStoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? image = null,
     Object? description = null,
+    Object? image = null,
+    Object? lat = freezed,
+    Object? lon = freezed,
   }) {
     return _then(_$UploadStoryImpl(
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as File,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File,
+      lat: freezed == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      lon: freezed == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -119,16 +133,21 @@ class __$$UploadStoryImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UploadStoryImpl implements _UploadStory {
-  const _$UploadStoryImpl({required this.image, required this.description});
+  const _$UploadStoryImpl(
+      {required this.description, required this.image, this.lat, this.lon});
 
+  @override
+  final String description;
   @override
   final File image;
   @override
-  final String description;
+  final double? lat;
+  @override
+  final double? lon;
 
   @override
   String toString() {
-    return 'AddStoryEvent.uploadStory(image: $image, description: $description)';
+    return 'AddStoryEvent.uploadStory(description: $description, image: $image, lat: $lat, lon: $lon)';
   }
 
   @override
@@ -136,13 +155,15 @@ class _$UploadStoryImpl implements _UploadStory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UploadStoryImpl &&
-            (identical(other.image, image) || other.image == image) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lon, lon) || other.lon == lon));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image, description);
+  int get hashCode => Object.hash(runtimeType, description, image, lat, lon);
 
   @JsonKey(ignore: true)
   @override
@@ -153,33 +174,37 @@ class _$UploadStoryImpl implements _UploadStory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(File image, String description) uploadStory,
+    required TResult Function(
+            String description, File image, double? lat, double? lon)
+        uploadStory,
     required TResult Function() pickImageGallery,
     required TResult Function() pickImageCamera,
   }) {
-    return uploadStory(image, description);
+    return uploadStory(description, image, lat, lon);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(File image, String description)? uploadStory,
+    TResult? Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult? Function()? pickImageGallery,
     TResult? Function()? pickImageCamera,
   }) {
-    return uploadStory?.call(image, description);
+    return uploadStory?.call(description, image, lat, lon);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(File image, String description)? uploadStory,
+    TResult Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult Function()? pickImageGallery,
     TResult Function()? pickImageCamera,
     required TResult orElse(),
   }) {
     if (uploadStory != null) {
-      return uploadStory(image, description);
+      return uploadStory(description, image, lat, lon);
     }
     return orElse();
   }
@@ -221,11 +246,15 @@ class _$UploadStoryImpl implements _UploadStory {
 
 abstract class _UploadStory implements AddStoryEvent {
   const factory _UploadStory(
-      {required final File image,
-      required final String description}) = _$UploadStoryImpl;
+      {required final String description,
+      required final File image,
+      final double? lat,
+      final double? lon}) = _$UploadStoryImpl;
 
-  File get image;
   String get description;
+  File get image;
+  double? get lat;
+  double? get lon;
   @JsonKey(ignore: true)
   _$$UploadStoryImplCopyWith<_$UploadStoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -269,7 +298,9 @@ class _$PickImageGalleryImpl implements _PickImageGallery {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(File image, String description) uploadStory,
+    required TResult Function(
+            String description, File image, double? lat, double? lon)
+        uploadStory,
     required TResult Function() pickImageGallery,
     required TResult Function() pickImageCamera,
   }) {
@@ -279,7 +310,8 @@ class _$PickImageGalleryImpl implements _PickImageGallery {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(File image, String description)? uploadStory,
+    TResult? Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult? Function()? pickImageGallery,
     TResult? Function()? pickImageCamera,
   }) {
@@ -289,7 +321,8 @@ class _$PickImageGalleryImpl implements _PickImageGallery {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(File image, String description)? uploadStory,
+    TResult Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult Function()? pickImageGallery,
     TResult Function()? pickImageCamera,
     required TResult orElse(),
@@ -377,7 +410,9 @@ class _$PickImageCameraImpl implements _PickImageCamera {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(File image, String description) uploadStory,
+    required TResult Function(
+            String description, File image, double? lat, double? lon)
+        uploadStory,
     required TResult Function() pickImageGallery,
     required TResult Function() pickImageCamera,
   }) {
@@ -387,7 +422,8 @@ class _$PickImageCameraImpl implements _PickImageCamera {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(File image, String description)? uploadStory,
+    TResult? Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult? Function()? pickImageGallery,
     TResult? Function()? pickImageCamera,
   }) {
@@ -397,7 +433,8 @@ class _$PickImageCameraImpl implements _PickImageCamera {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(File image, String description)? uploadStory,
+    TResult Function(String description, File image, double? lat, double? lon)?
+        uploadStory,
     TResult Function()? pickImageGallery,
     TResult Function()? pickImageCamera,
     required TResult orElse(),
